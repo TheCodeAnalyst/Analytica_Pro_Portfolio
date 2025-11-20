@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <title 
+        data-fr="Analytica Pro | Tréso & Flux" 
+        data-ar="Analytica Pro | السيولة والتدفق" 
+        data-en="Analytica Pro | Cash Flow Analysis">
+        Analytica Pro | Tréso & Flux
+    </title>
+</head>
+<body data-current-lang="fr">
+
+    <header class="navbar main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link"><h1 class="logo">Analytica Pro</h1></a>
+            <nav class="main-nav nav-links">
+                <ul>
+                    <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">Accueil</a></li>
+                    <li><a href="portfolio.html" data-fr="Nos Projets" data-ar="أعمالنا" data-en="Portfolio">Nos Projets</a></li>
+                    <li><a href="experience.html" data-fr="Notre Expertise" data-ar="خبرتنا" data-en="Our Expertise">Notre Expertise</a></li>
+                    
+                    <li><a href="cashflow_analysis.html" class="active" 
+                        data-fr="Tréso & Flux" 
+                        data-ar="السيولة والتدفق" 
+                        data-en="Cash Flow">
+                        Tréso & Flux</a></li>
+
+                    <li><a href="about.html" data-fr="À Propos" data-ar="من أنا" data-en="About">À Propos</a></li>
+                    <li><a href="contact.html" data-fr="Contactez-nous" data-ar="اتصل بنا" data-en="Contact Us">Contactez-nous</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls lang-switch">
+                <button data-lang="fr" class="lang-btn active">FR</button>
+                <button data-lang="ar" class="lang-btn">AR</button>
+                <button data-lang="en" class="lang-btn">EN</button>
+                <button id="theme-toggle" class="theme-toggle" title="Changer le Thème"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content analysis-section">
+        <div class="container">
+            
+            <h1 class="page-heading"
+                data-fr="Puissance de Prévision : Analyse et Prédiction du Flux de Trésorerie"
+                data-ar="قوة التوقع: تحليل وتوقع التدفق النقدي"
+                data-en="Forecasting Power: Cash Flow Analysis and Prediction">
+                Puissance de Prévision : Analyse et Prédiction du Flux de Trésorerie
+            </h1>
+            <p class="subtitle" 
+               data-fr="Le système de prévision s'appuie sur des algorithmes analytiques avancés pour estimer les revenus nets des six prochains mois."
+               data-ar="نظام التوقع يعتمد على خوارزميات تحليلية متقدمة لتقدير صافي الإيرادات للأشهر الستة القادمة."
+               data-en="The forecasting system relies on advanced analytical algorithms to estimate net revenue for the next six months.">
+                Le système de prévision s'appuie sur des algorithmes analytiques avancés pour estimer les revenus nets des six prochains mois.
+            </p>
+
+            <div class="analysis-layout">
+                
+                <div class="input-form-card">
+                    <h3 data-fr="Données Historiques (Revenus Nets)" 
+                        data-ar="البيانات التاريخية (صافي الإيرادات)" 
+                        data-en="Historical Data (Net Revenue)">
+                        Données Historiques (Revenus Nets)
+                    </h3>
+                    <form id="cashflow-form">
+                        
+                        <div class="form-group">
+                            <label for="month1" data-fr="Mois Net -5" data-ar="صافي الشهر -5" data-en="Net Month -5">Mois Net -5</label>
+                            <input type="number" id="month1" value="50000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="month2" data-fr="Mois Net -4" data-ar="صافي الشهر -4" data-en="Net Month -4">Mois Net -4</label>
+                            <input type="number" id="month2" value="65000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="month3" data-fr="Mois Net -3" data-ar="صافي الشهر -3" data-en="Net Month -3">Mois Net -3</label>
+                            <input type="number" id="month3" value="48000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="month4" data-fr="Mois Net -2" data-ar="صافي الشهر -2" data-en="Net Month -2">Mois Net -2</label>
+                            <input type="number" id="month4" value="72000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="month5" data-fr="Mois Net -1" data-ar="صافي الشهر -1" data-en="Net Month -1">Mois Net -1</label>
+                            <input type="number" id="month5" value="81000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="month6" data-fr="Mois Actuel Net" data-ar="صافي الشهر الحالي" data-en="Net Current Month">Mois Actuel Net</label>
+                            <input type="number" id="month6" value="90000" required>
+                        </div>
+                        
+                        <button type="submit" class="cta-button" 
+                                data-fr="Lancer l'Analyse et la Prévision" 
+                                data-ar="إطلاق التحليل والتوقع" 
+                                data-en="Run Analysis and Forecast">
+                                Lancer l'Analyse et la Prévision
+                        </button>
+                    </form>
+                </div>
+
+                <div class="chart-display-card">
+                    <h3 data-fr="Résultats de Prévision pour les 6 Prochains Mois" 
+                        data-ar="نتائج التوقع للـ 6 أشهر القادمة" 
+                        data-en="Forecasting Results for the Next 6 Months">
+                        Résultats de Prévision pour les 6 Prochains Mois
+                    </h3>
+                    
+                    <canvas id="cashFlowChart"></canvas>
+                    
+                    <div id="forecast-result" class="forecast-result"
+                         data-fr="Prévision Totale pour les 6 prochains mois: "
+                         data-ar="الإجمالي المتوقع لـ 6 أشهر القادمة: "
+                         data-en="Total Forecast for the next 6 months: ">
+                         Prévision Totale pour les 6 prochains mois: 389,877 DH.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-fr="&copy; 2025 Analytica Pro. Tous droits réservés." data-ar="&copy; 2025 Analytica Pro. كل الحقوق محفوظة." data-en="&copy; 2025 Analytica Pro. All Rights Reserved.">
+                &copy; 2025 Analytica Pro. Tous droits réservés.
+            </p>
+            <div class="legal-links">
+                <a href="privacy.html" data-fr="Politique de Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">Politique de Confidentialité</a>
+                <a href="terms.html" data-fr="Conditions de Service" data-ar="شروط الخدمة" data-en="Terms of Service">Conditions de Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

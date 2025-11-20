@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title 
+        data-fr="Analytica Pro | Projet: Conception de Tableaux de Bord Personnalisés" 
+        data-ar="Analytica Pro | تفاصيل المشروع: تصميم لوحة قيادة مخصصة" 
+        data-en="Analytica Pro | Project Details: Custom Dashboard Design">
+        Analytica Pro | Projet: Conception de Tableaux de Bord Personnalisés
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    
+    <style>
+        /* CSS خاص بصفحة تفاصيل المشروع - الوضع الداكن/الذهبي (نفس تنسيق المشاريع السابقة) */
+        
+        .project-details-section {
+            padding: 50px 50px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary); /* الذهبي */
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link i {
+            margin-left: 10px; /* للغة العربية */
+            margin-right: 0;
+        }
+        [dir="ltr"] .back-link i { /* تعديل الاتجاه للغات الأخرى */
+            margin-right: 10px;
+            margin-left: 0;
+            transform: scaleX(-1); /* لقلب السهم لليمين في وضع LTR */
+        }
+        
+        .project-details-section h1 {
+            color: var(--color-secondary); /* الأبيض/الفضي */
+            font-size: 2.5em;
+            border-bottom: 2px solid var(--color-primary); /* خط ذهبي تحت العنوان */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* تنسيق الأقسام الرئيسية (المشكلة، الحل، النتيجة) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: right;
+        }
+
+        .case-block {
+            background-color: var(--color-surface-dark);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-block h2 {
+            font-size: 1.8em;
+            color: var(--color-primary); /* العنوان ذهبي */
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .case-block h2 i {
+            margin-left: 10px; /* للعربية */
+            color: var(--color-secondary);
+        }
+        [dir="ltr"] .case-block h2 i {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+
+        /* جزء النتائج/ROI - الأكثر أهمية */
+        .results-section {
+            background-color: #1a1a1a; 
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 50px;
+            border: 3px solid var(--color-primary); /* إطار ذهبي بارز */
+            text-align: center;
+        }
+
+        .results-section h2 {
+            color: var(--color-primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .metric {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--color-secondary); /* فضي لامع */
+            display: block;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body data-current-lang="ar">
+
+    <header class="navbar main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link"><h1 class="logo">Analytica Pro</h1></a>
+            <nav class="main-nav nav-links">
+                <ul>
+                    <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    <li><a href="portfolio.html" class="active" data-fr="Nos Projets" data-ar="أعمالنا" data-en="Portfolio">أعمالنا</a></li>
+                    <li><a href="about.html" data-fr="À Propos" data-ar="من أنا" data-en="About">من أنا</a></li>
+                    <li><a href="contact.html" data-fr="Contactez-nous" data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls lang-switch">
+                <button data-lang="ar" class="lang-btn active">AR</button>
+                <button data-lang="fr" class="lang-btn">FR</button>
+                <button data-lang="en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container project-details-section">
+            
+            <a href="portfolio.html" class="back-link" 
+               data-fr="Retour au Portfolio" data-ar="العودة إلى أعمالنا" data-en="Back to Portfolio">
+               <i class="fas fa-arrow-right"></i> العودة إلى أعمالنا
+            </a>
+
+            <h1 data-fr="Conception de Tableau de Bord Personnalisé pour la Direction (Power BI/Tableau)"
+                data-ar="تصميم لوحة قيادة مخصصة للإدارة العليا (Power BI/Tableau)"
+                data-en="Custom Executive Dashboard Design (Power BI/Tableau)">
+                تصميم لوحة قيادة مخصصة للإدارة العليا (Power BI/Tableau)
+            </h1>
+            
+            <p data-fr="Création de rapports interactifs et visuels, intégrant des données de multiples sources pour fournir des rapports quotidiens rapides et précis à la haute direction."
+               data-ar="إنشاء تقارير تفاعلية، تدمج جميع البيانات من مصادر متعددة لتقديم تقارير يومية سريعة ودقيقة للإدارة العليا."
+               data-en="Creation of interactive reports, integrating data from multiple sources to provide quick and accurate daily reports for senior management.">
+               إنشاء تقارير تفاعلية، تدمج جميع البيانات من مصادر متعددة لتقديم تقارير يومية سريعة ودقيقة للإدارة العليا.
+            </p>
+            
+            <div class="case-study-grid">
+                <div class="case-block">
+                    <h2 data-fr="Le Défi" data-ar="التحدي والمشكلة" data-en="The Challenge"><i class="fas fa-exclamation-triangle"></i> التحدي والمشكلة</h2>
+                    <p data-fr="L'équipe de direction recevait des rapports manuels et statiques, dispersés et difficiles à consolider pour avoir une vue d'ensemble de la performance en temps réel, ce qui ralentissait la prise de décision."
+                       data-ar="كان فريق الإدارة يتلقى تقارير يدوية وثابتة ومشتتة يصعب دمجها للحصول على رؤية شاملة للأداء في الوقت الفعلي، مما أبطأ عملية اتخاذ القرار."
+                       data-en="The executive team was receiving manual, static, and scattered reports that were difficult to consolidate for a real-time performance overview, slowing down decision-making.">
+                       كان فريق الإدارة يتلقى تقارير يدوية وثابتة ومشتتة يصعب دمجها للحصول على رؤية شاملة للأداء في الوقت الفعلي، مما أبطأ عملية اتخاذ القرار.
+                    </p>
+                </div>
+                
+                <div class="case-block">
+                    <h2 data-fr="La Solution Technique" data-ar="الحل التقني والتطبيق" data-en="The Technical Solution"><i class="fas fa-chart-line"></i> الحل التقني والتطبيق</h2>
+                    <p data-fr="Conception d'un tableau de bord interactif dans Power BI (ou Tableau) intégrant des données provenant de bases de données SQL et de fichiers Excel. L'interface a été conçue pour présenter les indicateurs de performance clés (KPIs) sur un seul écran, filtrable et à rafraîchissement quotidien."
+                       data-ar="تصميم لوحة قيادة تفاعلية في Power BI (أو Tableau) تدمج البيانات من قواعد بيانات SQL وملفات Excel. تم تصميم الواجهة لتقديم مؤشرات الأداء الرئيسية (KPIs) في شاشة واحدة قابلة للتصفية والتحديث اليومي."
+                       data-en="Design of an interactive dashboard in Power BI (or Tableau) integrating data from SQL databases and Excel files. The interface was designed to present Key Performance Indicators (KPIs) on a single, filterable, and daily-refreshable screen.">
+                       تصميم لوحة قيادة تفاعلية في Power BI (أو Tableau) تدمج البيانات من قواعد بيانات SQL وملفات Excel. تم تصميم الواجهة لتقديم مؤشرات الأداء الرئيسية (KPIs) في شاشة واحدة قابلة للتصفية والتحديث اليومي.
+                    </p>
+                </div>
+
+                <div class="case-block">
+                    <h2 data-fr="Caractéristiques Clés" data-ar="المميزات الأساسية" data-en="Key Features"><i class="fas fa-tv"></i> المميزات الأساسية</h2>
+                    <ul>
+                        <li data-fr="Visualisation Unifiée: Tous les KPI sur un seul écran." data-ar="تصور موحد: جميع مؤشرات الأداء الرئيسية على شاشة واحدة." data-en="Unified Visualization: All KPIs on one screen.">تصور موحد: جميع مؤشرات الأداء الرئيسية على شاشة واحدة.</li>
+                        <li data-fr="Fonctionnalité Drill-down: Analyse approfondie des données." data-ar="خاصية Drill-down: تحليل متعمق للبيانات." data-en="Drill-down Functionality: In-depth data analysis.">خاصية Drill-down: تحليل متعمق للبيانات.</li>
+                        <li data-fr="Mises à Jour Automatiques: Rafraîchissement quotidien des données." data-ar="تحديثات تلقائية: التحديث اليومي للبيانات." data-en="Automatic Updates: Daily data refresh.">تحديثات تلقائية: التحديث اليومي للبيانات.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2 data-fr="Impact Mesurable et Retour sur Investissement (ROI)" data-ar="التأثير القابل للقياس وعائد الاستثمار (ROI)" data-en="Measurable Impact and Return on Investment (ROI)">
+                    التأثير القابل للقياس وعائد الاستثمار (ROI)
+                </h2>
+                <div class="metric">
+                    <span class="metric-value" data-fr="60%" data-ar="60%" data-en="60%">60%</span>
+                    <span class="metric-label" data-fr="Accélération de la Prise de Décision" data-ar="تسريع في اتخاذ القرار" data-en="Acceleration in Decision Making">تسريع في اتخاذ القرار</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="Quotidien" data-ar="يومي" data-en="Daily">يومي</span>
+                    <span class="metric-label" data-fr="Fréquence de Reporting" data-ar="تكرار إعداد التقارير" data-en="Reporting Frequency">تكرار إعداد التقارير</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="100%" data-ar="100%" data-en="100%">100%</span>
+                    <span class="metric-label" data-fr="Unification des Sources de Données" data-ar="توحيد مصادر البيانات" data-en="Data Source Unification">توحيد مصادر البيانات</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: center;">
+                <a href="contact.html" class="cta-button"
+                    data-fr="Transformez vos données en stratégie! Contactez-nous." 
+                    data-ar="حول بياناتك إلى إستراتيجية! اتصل بنا." 
+                    data-en="Transform your data into strategy! Contact us.">
+                    حول بياناتك إلى إستراتيجية! اتصل بنا.
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-fr="&copy; 2025 Analytica Pro. Tous droits réservés." data-ar="&copy; 2025 Analytica Pro. كل الحقوق محفوظة." data-en="&copy; 2025 Analytica Pro. All Rights Reserved.">
+                &copy; 2025 Analytica Pro. كل الحقوق محفوظة.
+            </p>
+            <div class="legal-links">
+                <a href="privacy-policy.html" data-fr="Politique de Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
+                <a href="terms-of-service.html" data-fr="Conditions de Service" data-ar="شروط الخدمة" data-en="Terms of Service">شروط الخدمة</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

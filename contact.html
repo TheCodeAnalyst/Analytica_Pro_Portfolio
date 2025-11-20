@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <title 
+        data-fr="Analytica Pro | Contactez-nous" 
+        data-ar="Analytica Pro | اتصل بنا" 
+        data-en="Analytica Pro | Contact Us">
+        Analytica Pro | Contactez-nous
+    </title>
+</head>
+<body data-current-lang="fr">
+
+    <header class="navbar main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link"><h1 class="logo">Analytica Pro</h1></a>
+            <nav class="main-nav nav-links">
+                <ul>
+                    <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">Accueil</a></li>
+                    <li><a href="portfolio.html" data-fr="Nos Projets" data-ar="أعمالنا" data-en="Portfolio">Nos Projets</a></li>
+                    <li><a href="about.html" data-fr="À Propos" data-ar="من أنا" data-en="About">À Propos</a></li>
+                    <li><a href="contact.html" class="active" data-fr="Contactez-nous" data-ar="اتصل بنا" data-en="Contact Us">Contactez-nous</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls lang-switch">
+                <button data-lang="fr" class="lang-btn active">FR</button>
+                <button data-lang="ar" class="lang-btn">AR</button>
+                <button data-lang="en" class="lang-btn">EN</button>
+                <button id="theme-toggle" class="theme-toggle" title="Changer le Thème"><i class="fa-solid fa-sun"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            
+            <h1 class="page-heading"
+                data-fr="Contactez-nous pour une Consultation Gratuite"
+                data-ar="اتصل بنا الآن للحصول على استشارة مجانية"
+                data-en="Contact Us for a Free Consultation">
+                Contactez-nous pour une Consultation Gratuite
+            </h1>
+            
+            <div class="contact-layout">
+                
+                <form id="contact-form" action="https://formspree.io/f/xjkladbp" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-fr="Nom Complet" data-ar="الاسم الكامل" data-en="Full Name">Nom Complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-fr="Adresse E-mail" data-ar="البريد الإلكتروني" data-en="Email Address">Adresse E-mail</label>
+                        <input type="email" id="email" name="_replyto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" data-fr="Sujet" data-ar="الموضوع" data-en="Subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-fr="Votre Message" data-ar="رسالتك" data-en="Your Message">Votre Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button"
+                        data-fr="Envoyer le Message"
+                        data-ar="أرسل الرسالة"
+                        data-en="Send Message">
+                        Envoyer le Message
+                    </button>
+                </form>
+                
+                <div class="contact-info">
+                    <h2 data-fr="Informations de Contact" data-ar="معلومات الاتصال" data-en="Contact Information">Informations de Contact</h2>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>data.analyst.expert2025@gmail.com</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-fr="&copy; 2025 Analytica Pro. Tous droits réservés." data-ar="&copy; 2025 Analytica Pro. كل الحقوق محفوظة." data-en="&copy; 2025 Analytica Pro. All Rights Reserved.">
+                &copy; 2025 Analytica Pro. Tous droits réservés.
+            </p>
+            <div class="legal-links">
+                <a href="privacy-policy.html" data-fr="Politique de Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">Politique de Confidentialité</a>
+                <a href="terms-of-service.html" data-fr="Conditions de Service" data-ar="شروط الخدمة" data-en="Terms of Service">Conditions de Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,961 @@
+/*
+    ======================================
+    1. المتغيرات والألوان (Themes & Variables)
+    ======================================
+*/
+
+:root {
+    /* الخطوط الأساسية */
+    --font-secondary: 'Tahoma', sans-serif; 
+    
+    /* الألوان الثابتة (الذهبي والحيادي) */
+    --color-primary: #FFD700; /* اللون الذهبي المميز */
+    --padding-container: 100px 50px;
+    --border-radius-base: 8px;
+    --transition-speed: 0.4s;
+}
+
+/* ------------------------------------------- */
+/* الوضع النهاري (Light Mode - الافتراضي والمصقول) */
+/* ------------------------------------------- */
+body:not(.dark-mode) {
+    --color-background: #FFFFFF;
+    --color-text: #333333; /* نصوص داكنة وواضحة */
+    --color-text-light: #666666; 
+    --color-header-footer: #FFFFFF;
+    --color-surface: #F8F9FA; /* خلفية الأقسام الخفيفة جداً */
+    --color-shadow: rgba(0, 0, 0, 0.15);
+    /* ألوان النموذج الإضافية */
+    --input-bg: #FFFFFF;
+    --border-color: #DDDDDD;
+}
+
+/* ------------------------------------------- */
+/* الوضع الليلي (Dark Mode - الذهبي الاحترافي) */
+/* ------------------------------------------- */
+body.dark-mode {
+    --color-background: #121212; /* خلفية داكنة جداً */
+    --color-text: #E0E0E0; /* نصوص فاتحة (فضي لامع) */
+    --color-text-light: #AAAAAA;
+    --color-header-footer: #181818;
+    --color-surface: #1E1E1E; /* خلفية الأقسام الداكنة */
+    --color-shadow: rgba(255, 215, 0, 0.1); 
+    /* ألوان النموذج الإضافية */
+    --input-bg: #2a2a2a;
+    --border-color: #555555;
+}
+
+
+/*
+    ======================================
+    2. الأساسيات العامة (General Styles)
+    ======================================
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.7; 
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: #ffd700cc; 
+}
+
+ul {
+    list-style: none;
+}
+
+.page-heading {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    text-align: center;
+}
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin: 10px auto 0;
+}
+
+
+.page-content {
+    min-height: calc(100vh - 120px); 
+    padding: var(--padding-container);
+}
+
+/*
+    ======================================
+    3. شريط التنقل (Header & Navigation) 
+    ======================================
+*/
+
+.main-header {
+    background-color: var(--color-header-footer);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px var(--color-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--color-surface); 
+}
+
+.nav-container {
+    display: flex;
+    /* التصحيح 1: نعود لـ space-between لتفريق اللوغو عن القائمة عن أدوات التحكم (حل مشكلة التداخل) */
+    justify-content: space-between;
+    align-items: center;
+    /* التصحيح 2: للسماح بكسر الشريط في شاشات الجوال */
+    flex-wrap: wrap; 
+}
+
+.logo {
+    font-size: 1.8em;
+    color: var(--color-primary);
+    font-weight: 900;
+    /* التصحيح 3: إضافة هامش لفصل اللوغو عن القائمة (خاصة في شاشات LTR) */
+    margin-right: 20px; 
+}
+
+/* القائمة الرئيسية */
+.main-nav ul {
+    display: flex;
+    /* التصحيح 4 أ: تقليل المسافة بين الروابط لحل مشكلة اللغة الفرنسية */
+    gap: 20px;
+}
+
+.main-nav a {
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 1.1em;
+    position: relative;
+    padding: 5px 0;
+    
+    /* التصحيح 4 ب: إلغاء white-space: nowrap; والاعتماد على 'gap' فقط 
+       لأن 'nowrap' كان يسبب مشكلة التداخل في الحالات الأخرى */
+    white-space: normal; 
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    bottom: 0;
+    right: 0; /* للعربية */
+    transition: width var(--transition-speed);
+}
+[dir="ltr"] .main-nav a::after {
+    left: 0;
+    right: auto;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+.main-nav a.active {
+    color: var(--color-primary);
+}
+
+/* أدوات التحكم (اللغة والمظهر) */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.lang-btn {
+    background: var(--color-surface);
+    border: 1px solid var(--border-color); /* استخدام متغير الحدود */
+    color: var(--color-text);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all var(--transition-speed);
+}
+body.dark-mode .lang-btn {
+    background: #252525;
+    border-color: #555;
+}
+
+.lang-btn.active {
+    background-color: var(--color-primary);
+    color: #121212; 
+    border-color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* ======= تعديل أيقونة الشمس/القمر (Theme Toggle) لضمان ظهورها ======= */
+/* تم تغيير ID ليتطابق مع الكود الأخير الذي أرسلته لك في contact.html */
+.theme-toggle, #dark-mode-toggle { 
+    background: none; 
+    border: none;     
+    color: var(--color-text); 
+    padding: 0;       
+    cursor: pointer;
+    font-size: 1.25rem; 
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle i, #dark-mode-toggle i {
+    color: var(--color-text); 
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover i, #dark-mode-toggle:hover i {
+    color: var(--color-primary); 
+}
+/* ================================================================= */
+
+/* التصحيح 5: تحسين التباعد في RTL (اللغة العربية) لتعويض قصر الكلمات */
+[dir="rtl"] .main-nav ul {
+    gap: 25px; 
+}
+
+
+/*
+    ======================================
+    4. التذييل (Footer)
+    ======================================
+*/
+
+.main-footer {
+    background-color: var(--color-header-footer);
+    color: var(--color-text);
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--color-surface);
+    box-shadow: 0 -2px 10px var(--color-shadow);
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.legal-links a {
+    color: var(--color-text-light);
+    margin: 0 10px;
+    font-size: 0.9em;
+}
+
+.legal-links a:hover {
+    color: var(--color-primary);
+}
+
+/*
+    ======================================
+    5. الأنماط الخاصة بالصفحات (Page Specific)
+    ======================================
+*/
+
+/* --- 5.1 الصفحة الرئيسية (Hero & Services Section) --- */
+
+.hero-section {
+    padding: 80px 20px; 
+}
+
+.hero-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* توسيط أفقي لكل المحتوى (Text + Image) */
+    text-align: center;     /* توسيط النصوص داخل الفقرات */
+    position: relative;     /* أساس لتحديد موضع الأيقونة المطلق */
+    gap: 20px; 
+    max-width: 1000px; 
+    margin: 0 auto;
+    /* إضافة Padding سفلي لترك مساحة كافية للأيقونة في الأسفل */
+    padding-bottom: 120px; 
+}
+
+.hero-text {
+    max-width: 750px; /* تحديد أقصى عرض للكتلة النصية لتكون مركزة */
+    width: 100%;
+    margin-bottom: 20px;
+    z-index: 2; 
+}
+
+.hero-text h1 {
+    font-size: 3.8em;
+    color: var(--color-text); 
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+body.dark-mode .hero-text h1 {
+    color: var(--color-text); 
+}
+
+.hero-text p {
+    font-size: 1.3em;
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #121212; 
+    padding: 15px 30px;
+    border-radius: var(--border-radius-base);
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+}
+.cta-button:hover {
+     background-color: #ffd700cc; /* لون أغمق قليلاً عند التمرير */
+}
+
+
+/* **تنسيق الأيقونة (لتحريكها وتصغيرها وإضافة لمسة جمالية)** */
+.hero-image-container {
+    position: absolute; 
+    font-size: 120px; /* تصغير حجم الخط لتحقيق التوازن */
+    z-index: 1;
+    display: none; /* إخفاؤها في الشاشات الصغيرة */
+    
+    /* إضافة لمسة جمالية (ظل ذهبي خفيف) بدلاً من الإطار */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); 
+    
+    /* تحديد موقعها بشكل مطلق لعدم التداخل مع النص */
+    bottom: 5px;    
+    right: 15%;      
+}
+
+/* إظهار وتحريك الأيقونة على الشاشات الكبيرة فقط (التحريك المطلوب) */
+@media (min-width: 1024px) {
+    .hero-image-container {
+        display: block; 
+    }
+}
+/* تنسيق الأيقونة داخل قسم البطل */
+.hero-image-container i {
+    color: var(--color-primary);
+}
+
+
+/* **إزالة تنسيق الدائرة من صفحة About** */
+.profile-img-container {
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* تم إلغاء الحدود والظلال لجعلها مجرد حاوية عادية إذا لم تستخدم صورة */
+    border: none; 
+    box-shadow: none;
+    /* لضمان توسيط الآيقونة عند عدم وجود صورة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* هذه التنسيقات ستمنع ظهور الدائرة إذا لم تضع فيها محتوى بصري */
+}
+
+
+/* --- تصحيح: شبكة الخدمات المفقودة (index.html) --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 أعمدة في الأجهزة الكبيرة */
+    gap: 30px;
+    padding: 50px 0;
+    text-align: center; 
+}
+.service-card {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 4px 15px var(--color-shadow);
+    transition: transform var(--transition-speed);
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--color-shadow), 0 0 15px rgba(255, 215, 0, 0.5);
+}
+/* ======= تأكيد ظهور أيقونات الخدمات ======= */
+.service-card .service-icon {
+    font-size: 40px; 
+    color: var(--color-primary); 
+    margin-bottom: 15px;
+    display: block; 
+}
+/* ======================================= */
+
+
+/* --- 5.2 صفحة الأعمال (Portfolio Page) --- */
+
+.filter-controls {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: right;
+}
+
+.filter-btn {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-text-light);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    font-weight: 500;
+}
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: #121212;
+    border-color: var(--color-primary);
+}
+
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-radius: var(--border-radius-base);
+    border-left: 5px solid var(--color-primary); 
+    box-shadow: 0 4px 15px var(--color-shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: block;
+    color: var(--color-text);
+}
+[dir="rtl"] .project-card {
+    border-right: 5px solid var(--color-primary);
+    border-left: none;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--color-shadow), 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.project-card h3 {
+    color: var(--color-text);
+}
+
+.project-card .project-icon {
+    font-size: 40px; 
+    color: var(--color-primary); 
+    margin-bottom: 15px;
+    display: block; 
+}
+
+.tech-tags .tag {
+    background-color: var(--color-primary);
+    color: #121212;
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-right: 5px; /* أو margin-left: 5px; في RTL */
+}
+
+/* --- 5.3 صفحة عني (About Page) --- */
+
+.about-layout {
+    display: flex;
+    flex-direction: row-reverse; 
+    gap: 50px;
+    padding: 50px 0;
+}
+
+.about-text h2 {
+    color: var(--color-text);
+    margin-top: 25px;
+}
+
+/* **أشرطة المهارات (Skill Bars) - استرجاع الألوان الأصلية** */
+.skills-section {
+    padding: 40px 0;
+}
+
+.skill-bar-item {
+    margin-bottom: 25px;
+}
+
+.skill-label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+/* الخلفية الأساسية للشريط */
+.progress-bar {
+    background-color: #383838; 
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* لون الخلفية في الوضع النهاري (أبيض) */
+body:not(.dark-mode) .progress-bar {
+    background-color: #E9ECEF; 
+}
+
+
+.progress-fill {
+    /* **تم حذف لون الخلفية العام هنا، سيتم تحديد اللون بالكلاس الخاص به** */
+    height: 100%;
+    width: 0; 
+    transition: width 1.5s ease-in-out;
+    border-radius: 10px;
+}
+
+/* الكلاسات الخاصة بالألوان لي كانت عندك في الصورة */
+.progress-fill.green {
+    background-color: #28a745; /* أخضر */
+    background-image: linear-gradient(to right, #28a745, #218838);
+}
+
+.progress-fill.yellow {
+    background-color: #ffc107; /* أصفر */
+    background-image: linear-gradient(to right, #ffc107, #e0a800);
+}
+
+.progress-fill.blue {
+    background-color: #007bff; /* أزرق */
+    background-image: linear-gradient(to right, #007bff, #0056b3);
+}
+
+.progress-fill.gold { /* هذا اللون ممكن تستعمله للمشاريع الخاصة أو لي بغيتيها ذهبية */
+    background-color: var(--color-primary);
+    background-image: linear-gradient(to right, #ffd700, #ffc400); 
+}
+
+
+/* لضمان بدء شريط الملء من اليمين في اللغة العربية */
+[dir="rtl"] .progress-fill {
+    position: absolute;
+    right: 0;
+}
+
+/* -------------------------------------- */
+/* --- 5.4 صفحة الاتصال (Contact Page) --- */
+/* -------------------------------------- */
+
+.contact-layout {
+    /* تغيير الترتيب ليتوافق مع التصميم اللي شفناه في الصورة */
+    display: flex;
+    gap: 50px;
+    padding: 50px 0;
+    flex-direction: row-reverse; /* نموذج الاتصال يمين، المعلومات يسار في LTR */
+}
+
+/* عكس الترتيب في اللغة العربية (RTL) */
+[dir="rtl"] .contact-layout {
+    flex-direction: row; /* نموذج الاتصال يمين، المعلومات يسار في RTL */
+}
+
+.contact-form {
+    flex-grow: 1; /* يأخذ المساحة المتبقية */
+    background-color: var(--color-surface);
+    padding: 40px;
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 4px 15px var(--color-shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    /* استخدام متغير الحدود والخلفية */
+    border: 1px solid var(--border-color); 
+    border-radius: 4px;
+    background-color: var(--input-bg); 
+    color: var(--color-text);
+    transition: border-color var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+}
+
+.contact-info {
+    flex-basis: 350px; /* عرض ثابت لصندوق المعلومات */
+    flex-shrink: 0;
+}
+
+.contact-info h2 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+.info-item i {
+    color: var(--color-primary);
+    font-size: 1.5em;
+}
+
+.submit-button {
+    background-color: var(--color-primary);
+    color: #121212;
+    padding: 15px 30px;
+    border: none;
+    border-radius: var(--border-radius-base);
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    width: 100%; /* لكي يأخذ الزر عرض النموذج كاملاً */
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+}
+.submit-button:hover {
+    background-color: #ffd700cc; 
+}
+
+
+/* --- 5.5 صفحات السياسات وتفاصيل المشاريع --- */
+/* إضافة تنسيق شبكة المشكل/الحل لصفحة تفاصيل المشروع */
+.problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 40px 0;
+}
+.grid-box {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 4px 15px var(--color-shadow);
+}
+.box-heading {
+    color: var(--color-primary);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+.problem-solution-grid ul {
+    margin-top: 15px;
+    padding: 0;
+}
+.problem-solution-grid ul li {
+    margin-bottom: 8px;
+    color: var(--color-text-light);
+}
+.problem-solution-grid i {
+    color: var(--color-primary);
+    margin-right: 10px; /* أو margin-left في RTL */
+}
+[dir="rtl"] .problem-solution-grid i {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.policy-section {
+    background-color: var(--color-surface); 
+    color: var(--color-text);
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+[dir="rtl"] .policy-section {
+    border-right: 5px solid var(--color-primary);
+    border-left: none;
+}
+[dir="ltr"] .policy-section {
+    border-left: 5px solid var(--color-primary);
+    border-right: none;
+}
+
+
+/* --- 5.6 تنسيق صفحة تحليل السيولة (Cashflow Analysis) --- */
+
+.analysis-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.analysis-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* تبدأ العناصر من الأعلى */
+    padding: 30px 0;
+}
+
+/* تنسيق بطاقة الإدخال (Form) وعرض الرسم البياني (Chart) */
+.input-form-card,
+.chart-display-card {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 4px 15px var(--color-shadow);
+    flex: 1; /* لجعل البطاقتين تتشاركان المساحة بالتساوي */
+}
+
+.input-form-card h3,
+.chart-display-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--color-text-light);
+    padding-bottom: 10px;
+}
+
+/* تنسيق النموذج */
+#cashflow-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+#cashflow-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    /* استخدام متغير الحدود والخلفية */
+    border: 1px solid var(--border-color); 
+    border-radius: 4px;
+    background-color: var(--input-bg); 
+    color: var(--color-text);
+    transition: border-color 0.3s;
+}
+
+#cashflow-form input[type="number"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+#cashflow-form .cta-button {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* تنسيق نتائج التوقع */
+.forecast-result {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--color-primary);
+    color: #121212;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: var(--border-radius-base);
+    text-align: center;
+}
+
+
+/* تعديلات الاستجابة للعرض على الأجهزة الصغيرة */
+@media (max-width: 900px) {
+    .hero-section, .about-layout, .contact-layout, .analysis-layout {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 0;
+    }
+    /* تصحيح Grid في الأجهزة الصغيرة */
+    .problem-solution-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .nav-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .main-nav {
+        order: 3;
+        width: 100%;
+    }
+    .main-nav ul {
+        justify-content: center;
+    }
+    
+    .header-controls {
+        order: 2;
+    }
+
+    .logo-link {
+        order: 1;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .profile-img-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    /* تحسين العرض في وضع الجوال لصفحة الاتصال والسيولة */
+    .contact-info, .contact-form,
+    .input-form-card, .chart-display-card {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .main-footer .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .legal-links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* الخدمات عمود واحد في الجوال */
+    }
+}
+
+
+/* ========================================= */
+/* 6. تنسيق وضع الـ RTL (للغة العربية) - (تنظيم الكود) */
+/* ========================================= */
+
+/* تعديل اتجاه النص والهوامش عند التحويل للعربية */
+body[data-current-lang="ar"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* عكس ترتيب العناصر الرئيسية (Hero, About) في وضع RTL */
+body[data-current-lang="ar"] .about-layout {
+    flex-direction: row; /* لعكس ترتيب الصورة والنص في حول الصفحة */
+}
+
+
+/* تعديل فلاتر الأعمال (Portfolio Filters) في وضع RTL */
+body[data-current-lang="ar"] .filter-controls {
+    justify-content: flex-start; /* تبدأ الفلاتر من اليمين في RTL */
+}
+
+/* تعديل محاذاة النص في خانات الاتصال */
+body[data-current-lang="ar"] .contact-info .info-item {
+    text-align: right;
+}
+
+/* تعديل اتجاه الأيقونات في الاتصال */
+body[data-current-lang="ar"] .info-item {
+    direction: rtl; 
+}
+/* تعديل الأيقونة في back-link */
+body[data-current-lang="ar"] .back-link i {
+    transform: rotate(180deg);
+}
+
+/* * --------------------------------------
+ * قواعد RTL الإضافية المُحسّنة (لا توجد أي إزالة)
+ * --------------------------------------
+ */
+
+/* عكس مؤشر التحديد في القائمة الرئيسية */
+body[data-current-lang="ar"] .main-nav a::after {
+    right: 0;
+    left: auto;
+}
+
+/* الأيقونات في القائمة والنصوص (مثل أيقونة المشاكل/الحلول) */
+body[data-current-lang="ar"] .problem-solution-grid i,
+body[data-current-lang="ar"] .info-item i {
+    /* عكس الهامش الجانبي للأيقونات (من اليسار إلى اليمين) */
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+/* تنسيق وسم التكنولوجيا (Tags) */
+body[data-current-lang="ar"] .tech-tags .tag {
+    /* عكس الهامش بين الوسوم */
+    margin-right: 0;
+    margin-left: 5px; 
+}
+
+/* شريط المهارات (Skills Bar) */
+body[data-current-lang="ar"] .progress-fill {
+    /* يبدأ شريط الملء من اليمين في اللغة العربية */
+    position: absolute;
+    right: 0;
+    left: auto;
+}

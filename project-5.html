@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title 
+        data-fr="Analytica Pro | Projet: Tableau de Bord d'Analyse des Ventes (BI)" 
+        data-ar="Analytica Pro | تفاصيل المشروع: لوحة قيادة تحليل المبيعات (BI)" 
+        data-en="Analytica Pro | Project Details: Sales Analysis Dashboard (BI)">
+        Analytica Pro | Projet: Tableau de Bord d'Analyse des Ventes (BI)
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    
+    <style>
+        /* CSS خاص بصفحة تفاصيل المشروع - الوضع الداكن/الذهبي (نفس تنسيق المشاريع السابقة) */
+        
+        .project-details-section {
+            padding: 50px 50px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary); /* الذهبي */
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link i {
+            margin-left: 10px; /* للغة العربية */
+            margin-right: 0;
+        }
+        [dir="ltr"] .back-link i { /* تعديل الاتجاه للغات الأخرى */
+            margin-right: 10px;
+            margin-left: 0;
+            transform: scaleX(-1); /* لقلب السهم لليمين في وضع LTR */
+        }
+        
+        .project-details-section h1 {
+            color: var(--color-secondary); /* الأبيض/الفضي */
+            font-size: 2.5em;
+            border-bottom: 2px solid var(--color-primary); /* خط ذهبي تحت العنوان */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* تنسيق الأقسام الرئيسية (المشكلة، الحل، النتيجة) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: right;
+        }
+
+        .case-block {
+            background-color: var(--color-surface-dark);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-block h2 {
+            font-size: 1.8em;
+            color: var(--color-primary); /* العنوان ذهبي */
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .case-block h2 i {
+            margin-left: 10px; /* للعربية */
+            color: var(--color-secondary);
+        }
+        [dir="ltr"] .case-block h2 i {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+
+        /* جزء النتائج/ROI - الأكثر أهمية */
+        .results-section {
+            background-color: #1a1a1a; 
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 50px;
+            border: 3px solid var(--color-primary); /* إطار ذهبي بارز */
+            text-align: center;
+        }
+
+        .results-section h2 {
+            color: var(--color-primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .metric {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--color-secondary); /* فضي لامع */
+            display: block;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body data-current-lang="ar">
+
+    <header class="navbar main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link"><h1 class="logo">Analytica Pro</h1></a>
+            <nav class="main-nav nav-links">
+                <ul>
+                    <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    <li><a href="portfolio.html" class="active" data-fr="Nos Projets" data-ar="أعمالنا" data-en="Portfolio">أعمالنا</a></li>
+                    <li><a href="about.html" data-fr="À Propos" data-ar="من أنا" data-en="About">من أنا</a></li>
+                    <li><a href="contact.html" data-fr="Contactez-nous" data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls lang-switch">
+                <button data-lang="ar" class="lang-btn active">AR</button>
+                <button data-lang="fr" class="lang-btn">FR</button>
+                <button data-lang="en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container project-details-section">
+            
+            <a href="portfolio.html" class="back-link" 
+               data-fr="Retour au Portfolio" data-ar="العودة إلى أعمالنا" data-en="Back to Portfolio">
+               <i class="fas fa-arrow-right"></i> العودة إلى أعمالنا
+            </a>
+
+            <h1 data-fr="Tableau de Bord d'Analyse des Ventes et Prévision des Stocks (BI)"
+                data-ar="لوحة قيادة تحليل المبيعات وتوقع المخزون (BI)"
+                data-en="Sales Analysis and Inventory Forecasting Dashboard (BI)">
+                لوحة قيادة تحليل المبيعات وتوقع المخزون (BI)
+            </h1>
+            
+            <p data-fr="Analyse approfondie des performances de vente et prévision des stocks, avec des tableaux de bord interactifs axés sur les données de marché et les niveaux de stock."
+               data-ar="تحليل عميق لأداء المبيعات وتوقع المخزون، مع لوحات قيادة تفاعلية تركز على بيانات السوق والمخزون."
+               data-en="Deep analysis of sales performance and inventory forecasting, with interactive dashboards focusing on market data and inventory levels.">
+               تحليل عميق لأداء المبيعات وتوقع المخزون، مع لوحات قيادة تفاعلية تركز على بيانات السوق والمخزون.
+            </p>
+            
+            <div class="case-study-grid">
+                <div class="case-block">
+                    <h2 data-fr="Le Défi" data-ar="التحدي والمشكلة" data-en="The Challenge"><i class="fas fa-exclamation-triangle"></i> التحدي والمشكلة</h2>
+                    <p data-fr="L'entreprise manquait d'une vue unifiée et prédictive de ses performances de vente. Les décisions de réapprovisionnement étaient basées sur des estimations, entraînant des ruptures de stock ou, à l'inverse, des coûts de stockage excessifs."
+                       data-ar="كانت الشركة تفتقر إلى رؤية موحدة وتنبؤية لأدائها في المبيعات. وكانت قرارات إعادة التخزين تعتمد على التقديرات، مما أدى إلى نقص في المخزون أو، على العكس، تكاليف تخزين زائدة."
+                       data-en="The company lacked a unified and predictive view of its sales performance. Replenishment decisions were based on estimations, leading to stock shortages or, conversely, excessive storage costs.">
+                       كانت الشركة تفتقر إلى رؤية موحدة وتنبؤية لأدائها في المبيعات. وكانت قرارات إعادة التخزين تعتمد على التقديرات، مما أدى إلى نقص في المخزون أو، على العكس، تكاليف تخزين زائدة.
+                    </p>
+                </div>
+                
+                <div class="case-block">
+                    <h2 data-fr="La Solution Technique" data-ar="الحل التقني والتطبيق" data-en="The Technical Solution"><i class="fas fa-chart-pie"></i> الحل التقني والتطبيق</h2>
+                    <p data-fr="Développement d'un modèle de données et d'un tableau de bord Power BI. Utilisation de requêtes SQL avancées pour extraire et transformer les données brutes. Le tableau de bord affiche les tendances de vente, les marges bénéficiaires par produit, et intègre des algorithmes simples de prévision des stocks."
+                       data-ar="تطوير نموذج بيانات ولوحة قيادة في Power BI. استخدام استعلامات SQL متقدمة لاستخراج وتحويل البيانات الخام. تعرض لوحة القيادة اتجاهات المبيعات، وهوامش الربح حسب المنتج، وتدمج خوارزميات بسيطة لتوقع المخزون."
+                       data-en="Development of a data model and a Power BI dashboard. Used advanced SQL queries to extract and transform raw data. The dashboard displays sales trends, profit margins by product, and integrates simple inventory forecasting algorithms.">
+                       تطوير نموذج بيانات ولوحة قيادة في Power BI. استخدام استعلامات SQL متقدمة لاستخراج وتحويل البيانات الخام. تعرض لوحة القيادة اتجاهات المبيعات، وهوامش الربح حسب المنتج، وتدمج خوارزميات بسيطة لتوقع المخزون.
+                    </p>
+                </div>
+
+                <div class="case-block">
+                    <h2 data-fr="Fonctionnalités Clés" data-ar="الوظائف والمميزات الأساسية" data-en="Key Features and Functionality"><i class="fas fa-search-dollar"></i> الوظائف والمميزات الأساسية</h2>
+                    <ul>
+                        <li data-fr="Analyse de Rentabilité: Identification des produits les plus lucratifs." data-ar="تحليل الربحية: تحديد المنتجات الأكثر ربحية." data-en="Profitability Analysis: Identifying the most lucrative products.">تحليل الربحية: تحديد المنتجات الأكثر ربحية.</li>
+                        <li data-fr="Prévision du Stock Minimum: Détermination d'un niveau de stock minimum sécurisé." data-ar="توقع الحد الأدنى للمخزون: تحديد حد أدنى آمن للمخزون." data-en="Minimum Stock Forecasting: Determining a safe minimum inventory level.">توقع الحد الأدنى للمخزون: تحديد حد أدنى آمن للمخزون.</li>
+                        <li data-fr="Vue de Segmentation: Analyse des ventes par région/client." data-ar="عرض التجزئة: تحليل المبيعات حسب المنطقة/الزبون." data-en="Segmentation View: Sales analysis by region/customer.">عرض التجزئة: تحليل المبيعات حسب المنطقة/الزبون.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2 data-fr="Impact Mesurable et Retour sur Investissement (ROI)" data-ar="التأثير القابل للقياس وعائد الاستثمار (ROI)" data-en="Measurable Impact and Return on Investment (ROI)">
+                    التأثير القابل للقياس وعائد الاستثمار (ROI)
+                </h2>
+                <div class="metric">
+                    <span class="metric-value" data-fr="15%" data-ar="15%" data-en="15%">15%</span>
+                    <span class="metric-label" data-fr="Réduction des Coûts de Stock Excédentaire" data-ar="خفض في تكاليف المخزون الزائد" data-en="Reduction in Excess Inventory Costs">خفض في تكاليف المخزون الزائد</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="99%" data-ar="99%" data-en="99%">99%</span>
+                    <span class="metric-label" data-fr="Amélioration de la Disponibilité des Données" data-ar="تحسن في توفر البيانات" data-en="Improvement in Data Availability">تحسن في توفر البيانات</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="10+" data-ar="10+" data-en="10+">10+</span>
+                    <span class="metric-label" data-fr="Produits Lucratifs Identifiés" data-ar="منتجات مربحة تم تحديدها" data-en="Lucrative Products Identified">منتجات مربحة تم تحديدها</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: center;">
+                <a href="contact.html" class="cta-button"
+                    data-fr="Augmentez vos marges bénéficiaires! Contactez-nous." 
+                    data-ar="زد من هوامش أرباحك! اتصل بنا." 
+                    data-en="Increase your profit margins! Contact us.">
+                    زد من هوامش أرباحك! اتصل بنا.
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-fr="&copy; 2025 Analytica Pro. Tous droits réservés." data-ar="&copy; 2025 Analytica Pro. كل الحقوق محفوظة." data-en="&copy; 2025 Analytica Pro. All Rights Reserved.">
+                &copy; 2025 Analytica Pro. كل الحقوق محفوظة.
+            </p>
+            <div class="legal-links">
+                <a href="privacy-policy.html" data-fr="Politique de Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
+                <a href="terms-of-service.html" data-fr="Conditions de Service" data-ar="شروط الخدمة" data-en="Terms of Service">شروط الخدمة</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title 
+        data-fr="Analytica Pro | Projet: Conception de Modèles de Rapports Professionnels" 
+        data-ar="Analytica Pro | تفاصيل المشروع: تصميم قوالب تقارير احترافية" 
+        data-en="Analytica Pro | Project Details: Professional Report Template Design">
+        Analytica Pro | Projet: Conception de Modèles de Rapports Professionnels
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    
+    <style>
+        /* CSS خاص بصفحة تفاصيل المشروع - الوضع الداكن/الذهبي (نفس تنسيق المشاريع السابقة) */
+        
+        .project-details-section {
+            padding: 50px 50px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary); /* الذهبي */
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link i {
+            margin-left: 10px; /* للغة العربية */
+            margin-right: 0;
+        }
+        [dir="ltr"] .back-link i { /* تعديل الاتجاه للغات الأخرى */
+            margin-right: 10px;
+            margin-left: 0;
+            transform: scaleX(-1); /* لقلب السهم لليمين في وضع LTR */
+        }
+        
+        .project-details-section h1 {
+            color: var(--color-secondary); /* الأبيض/الفضي */
+            font-size: 2.5em;
+            border-bottom: 2px solid var(--color-primary); /* خط ذهبي تحت العنوان */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* تنسيق الأقسام الرئيسية (المشكلة، الحل، النتيجة) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: right;
+        }
+
+        .case-block {
+            background-color: var(--color-surface-dark);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-block h2 {
+            font-size: 1.8em;
+            color: var(--color-primary); /* العنوان ذهبي */
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .case-block h2 i {
+            margin-left: 10px; /* للعربية */
+            color: var(--color-secondary);
+        }
+        [dir="ltr"] .case-block h2 i {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+
+        /* جزء النتائج/ROI - الأكثر أهمية */
+        .results-section {
+            background-color: #1a1a1a; 
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 50px;
+            border: 3px solid var(--color-primary); /* إطار ذهبي بارز */
+            text-align: center;
+        }
+
+        .results-section h2 {
+            color: var(--color-primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .metric {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--color-secondary); /* فضي لامع */
+            display: block;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body data-current-lang="ar">
+
+    <header class="navbar main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link"><h1 class="logo">Analytica Pro</h1></a>
+            <nav class="main-nav nav-links">
+                <ul>
+                    <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    <li><a href="portfolio.html" class="active" data-fr="Nos Projets" data-ar="أعمالنا" data-en="Portfolio">أعمالنا</a></li>
+                    <li><a href="about.html" data-fr="À Propos" data-ar="من أنا" data-en="About">من أنا</a></li>
+                    <li><a href="contact.html" data-fr="Contactez-nous" data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls lang-switch">
+                <button data-lang="ar" class="lang-btn active">AR</button>
+                <button data-lang="fr" class="lang-btn">FR</button>
+                <button data-lang="en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container project-details-section">
+            
+            <a href="portfolio.html" class="back-link" 
+               data-fr="Retour au Portfolio" data-ar="العودة إلى أعمالنا" data-en="Back to Portfolio">
+               <i class="fas fa-arrow-right"></i> العودة إلى أعمالنا
+            </a>
+
+            <h1 data-fr="Conception de Modèles de Rapports et Assurance Qualité (QA)"
+                data-ar="تصميم قوالب تقارير احترافية وضمان الجودة (QA)"
+                data-en="Professional Report Template Design and Quality Assurance (QA)">
+                تصميم قوالب تقارير احترافية وضمان الجودة (QA)
+            </h1>
+            
+            <p data-fr="Développement de modèles de rapports standardisés et visuellement attrayants pour Excel et PowerPoint, garantissant une cohérence de marque et une fonctionnalité sans faille pour tous les utilisateurs."
+               data-ar="تطوير قوالب تقارير موحدة وجذابة بصرياً لـ Excel و PowerPoint، لضمان اتساق العلامة التجارية وعمل النماذج دون مشاكل لجميع المستخدمين."
+               data-en="Development of standardized, visually appealing report templates for Excel and PowerPoint, ensuring brand consistency and seamless functionality for all users.">
+               تطوير قوالب تقارير موحدة وجذابة بصرياً لـ Excel و PowerPoint، لضمان اتساق العلامة التجارية وعمل النماذج دون مشاكل لجميع المستخدمين.
+            </p>
+            
+            <div class="case-study-grid">
+                <div class="case-block">
+                    <h2 data-fr="Le Défi" data-ar="التحدي والمشكلة" data-en="The Challenge"><i class="fas fa-exclamation-triangle"></i> التحدي والمشكلة</h2>
+                    <p data-fr="L'utilisation de rapports non standardisés et le manque de contrôles de qualité des formules et des mises en page entraînaient des erreurs fréquentes, une image de marque incohérente et une perte de crédibilité lors des présentations."
+                       data-ar="استخدام تقارير غير موحدة ونقص في ضوابط الجودة (QA) على الصيغ والتنسيقات أدى إلى أخطاء متكررة، صورة علامة تجارية غير متسقة، وفقدان للمصداقية خلال العروض التقديمية."
+                       data-en="The use of non-standardized reports and lack of Quality Assurance (QA) on formulas and formatting led to frequent errors, inconsistent brand image, and loss of credibility during presentations.">
+                       استخدام تقارير غير موحدة ونقص في ضوابط الجودة (QA) على الصيغ والتنسيقات أدى إلى أخطاء متكررة، صورة علامة تجارية غير متسقة، وفقدان للمصداقية خلال العروض التقديمية.
+                    </p>
+                </div>
+                
+                <div class="case-block">
+                    <h2 data-fr="La Solution Technique" data-ar="الحل التقني والتطبيق" data-en="The Technical Solution"><i class="fas fa-layer-group"></i> الحل التقني والتطبيق</h2>
+                    <p data-fr="Conception de 'Master Templates' avec des mises en page verrouillées, des styles de tableaux de bord définis et des formules Excel auditées. Mise en place de protocoles de QA rigoureux pour s'assurer que les modèles restent fonctionnels et visuellement parfaits quelle que soit l'entrée de données."
+                       data-ar="تصميم 'قوالب رئيسية' (Master Templates) ذات تنسيقات مغلقة، وأنماط لوحات قيادة محددة، وصيغ Excel مدققة. وتطبيق بروتوكولات ضمان جودة صارمة (QA) للتأكد من بقاء القوالب عملية ومثالية بصرياً بغض النظر عن مدخلات البيانات."
+                       data-en="Design of 'Master Templates' with locked layouts, defined dashboard styles, and audited Excel formulas. Implemented rigorous Quality Assurance (QA) protocols to ensure templates remain functional and visually perfect regardless of data input.">
+                       تصميم 'قوالب رئيسية' (Master Templates) ذات تنسيقات مغلقة، وأنماط لوحات قيادة محددة، وصيغ Excel مدققة. وتطبيق بروتوكولات ضمان جودة صارمة (QA) للتأكد من بقاء القوالب عملية ومثالية بصرياً بغض النظر عن مدخلات البيانات.
+                    </p>
+                </div>
+
+                <div class="case-block">
+                    <h2 data-fr="Livraisons Clés" data-ar="المميزات الأساسية للنتائج" data-en="Key Deliverables"><i class="fas fa-palette"></i> المميزات الأساسية للنتائج</h2>
+                    <ul>
+                        <li data-fr="Cohérence Visuelle: Harmonie entre les documents Excel et PPT." data-ar="اتساق بصري: تناغم بين وثائق Excel و PPT." data-en="Visual Consistency: Harmony between Excel and PPT documents.">اتساق بصري: تناغم بين وثائق Excel و PPT.</li>
+                        <li data-fr="Résistance aux Erreurs: Zones d'entrée verrouillées et logique de calcul protégée." data-ar="مقاومة للأخطاء: مناطق إدخال مقفلة ومنطق حسابي محمي." data-en="Error Resistance: Locked input areas and protected calculation logic.">مقاومة للأخطاء: مناطق إدخال مقفلة ومنطق حسابي محمي.</li>
+                        <li data-fr="Documentation Complète: Guide de l'utilisateur pour l'utilisation efficace des modèles." data-ar="توثيق كامل: دليل المستخدم لاستخدام القوالب بفعالية." data-en="Comprehensive Documentation: User guide for effective template usage.">توثيق كامل: دليل المستخدم لاستخدام القوالب بفعالية.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2 data-fr="Impact Mesurable et Assurance Qualité" data-ar="التأثير القابل للقياس وضمان الجودة" data-en="Measurable Impact and Quality Assurance">
+                    التأثير القابل للقياس وضمان الجودة
+                </h2>
+                <div class="metric">
+                    <span class="metric-value" data-fr="0%" data-ar="0%" data-en="0%">0%</span>
+                    <span class="metric-label" data-fr="Taux d'Erreur dans les Formules de Rapport" data-ar="معدل الخطأ في صيغ التقارير" data-en="Error Rate in Report Formulas">معدل الخطأ في صيغ التقارير</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="20+" data-ar="20+" data-en="20+">20+</span>
+                    <span class="metric-label" data-fr="Modèles de Rapport Mis en Place" data-ar="قالب تقرير احترافي تم وضعه" data-en="Professional Report Templates Implemented">قالب تقرير احترافي تم وضعه</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="100%" data-ar="100%" data-en="100%">100%</span>
+                    <span class="metric-label" data-fr="Conformité à l'Image de Marque (Branding)" data-ar="التوافق مع صورة العلامة التجارية" data-en="Compliance with Brand Image (Branding)">التوافق مع صورة العلامة التجارية</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: center;">
+                <a href="contact.html" class="cta-button"
+                    data-fr="Sécurisez l'image et la fiabilité de vos rapports! Contactez-nous." 
+                    data-ar="اضمن موثوقية وجودة تقاريرك! اتصل بنا." 
+                    data-en="Ensure the reliability and quality of your reports! Contact us.">
+                    اضمن موثوقية وجودة تقاريرك! اتصل بنا.
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-fr="&copy; 2025 Analytica Pro. Tous droits réservés." data-ar="&copy; 2025 Analytica Pro. كل الحقوق محفوظة." data-en="&copy; 2025 Analytica Pro. All Rights Reserved.">
+                &copy; 2025 Analytica Pro. كل الحقوق محفوظة.
+            </p>
+            <div class="legal-links">
+                <a href="privacy-policy.html" data-fr="Politique de Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
+                <a href="terms-of-service.html" data-fr="Conditions de Service" data-ar="شروط الخدمة" data-en="Terms of Service">شروط الخدمة</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title 
+        data-fr="Analytica Pro | Projet: Migration et Nettoyage de Données Massives (SQL)" 
+        data-ar="Analytica Pro | تفاصيل المشروع: ترحيل وتنظيف البيانات الضخمة (SQL)" 
+        data-en="Analytica Pro | Project Details: Big Data Migration and Cleaning (SQL)">
+        Analytica Pro | Projet: Migration et Nettoyage de Données Massives (SQL)
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    
+    <style>
+        /* CSS خاص بصفحة تفاصيل المشروع - الوضع الداكن/الذهبي (نفس تنسيق المشاريع السابقة) */
+        
+        .project-details-section {
+            padding: 50px 50px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary); /* الذهبي */
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link i {
+            margin-left: 10px; /* للغة العربية */
+            margin-right: 0;
+        }
+        [dir="ltr"] .back-link i { /* تعديل الاتجاه للغات الأخرى */
+            margin-right: 10px;
+            margin-left: 0;
+            transform: scaleX(-1); /* لقلب السهم لليمين في وضع LTR */
+        }
+        
+        .project-details-section h1 {
+            color: var(--color-secondary); /* الأبيض/الفضي */
+            font-size: 2.5em;
+            border-bottom: 2px solid var(--color-primary); /* خط ذهبي تحت العنوان */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* تنسيق الأقسام الرئيسية (المشكلة، الحل، النتيجة) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: right;
+        }
+
+        .case-block {
+            background-color: var(--color-surface-dark);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-block h2 {
+            font-size: 1.8em;
+            color: var(--color-primary); /* العنوان ذهبي */
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .case-block h2 i {
+            margin-left: 10px; /* للعربية */
+            color: var(--color-secondary);
+        }
+        [dir="ltr"] .case-block h2 i {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+
+        /* جزء النتائج/ROI - الأكثر أهمية */
+        .results-section {
+            background-color: #1a1a1a; 
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 50px;
+            border: 3px solid var(--color-primary); /* إطار ذهبي بارز */
+            text-align: center;
+        }
+
+        .results-section h2 {
+            color: var(--color-primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .metric {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--color-secondary); /* فضي لامع */
+            display: block;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body data-current-lang="ar">
+
+    <header class="navbar main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link"><h1 class="logo">Analytica Pro</h1></a>
+            <nav class="main-nav nav-links">
+                <ul>
+                    <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    <li><a href="portfolio.html" class="active" data-fr="Nos Projets" data-ar="أعمالنا" data-en="Portfolio">أعمالنا</a></li>
+                    <li><a href="about.html" data-fr="À Propos" data-ar="من أنا" data-en="About">من أنا</a></li>
+                    <li><a href="contact.html" data-fr="Contactez-nous" data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls lang-switch">
+                <button data-lang="ar" class="lang-btn active">AR</button>
+                <button data-lang="fr" class="lang-btn">FR</button>
+                <button data-lang="en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container project-details-section">
+            
+            <a href="portfolio.html" class="back-link" 
+               data-fr="Retour au Portfolio" data-ar="العودة إلى أعمالنا" data-en="Back to Portfolio">
+               <i class="fas fa-arrow-right"></i> العودة إلى أعمالنا
+            </a>
+
+            <h1 data-fr="Migration et Nettoyage de Données Massives (SQL)"
+                data-ar="ترحيل وتنظيف البيانات الضخمة (SQL)"
+                data-en="Big Data Migration and Cleaning (SQL)">
+                ترحيل وتنظيف البيانات الضخمة (SQL)
+            </h1>
+            
+            <p data-fr="Gérer la migration d'ensembles de données complexes vers de nouveaux systèmes, en assurant la qualité et l'exactitude des données."
+               data-ar="إدارة ترحيل مجموعات البيانات المعقدة إلى أنظمة جديدة، وضمان جودة البيانات ودقتها."
+               data-en="Managing the migration of complex datasets to new systems, ensuring data quality and accuracy.">
+               إدارة ترحيل مجموعات البيانات المعقدة إلى أنظمة جديدة، وضمان جودة البيانات ودقتها.
+            </p>
+            
+            <div class="case-study-grid">
+                <div class="case-block">
+                    <h2 data-fr="Le Défi" data-ar="التحدي والمشكلة" data-en="The Challenge"><i class="fas fa-exclamation-triangle"></i> التحدي والمشكلة</h2>
+                    <p data-fr="Le processus de transfert de millions d'enregistrements d'un ancien système vers une base de données centrale moderne était manuel et sujet à la perte ou à la corruption de données, menaçant la fiabilité du nouveau système. Ceci a nécessité une migration précise et automatisée."
+                       data-ar="كانت عملية نقل ملايين السجلات من نظام قديم إلى قاعدة بيانات مركزية حديثة يدوية وعرضة لفقدان أو تلف البيانات، مما يهدد موثوقية النظام الجديد. هذا تطلب ترحيلاً دقيقاً ومؤتمتاً."
+                       data-en="The process of transferring millions of records from an old system to a modern central database was manual and prone to data loss or corruption, threatening the reliability of the new system. This required an accurate and automated migration.">
+                       كانت عملية نقل ملايين السجلات من نظام قديم إلى قاعدة بيانات مركزية حديثة يدوية وعرضة لفقدان أو تلف البيانات، مما يهدد موثوقية النظام الجديد. هذا تطلب ترحيلاً دقيقاً ومؤتمتاً.
+                    </p>
+                </div>
+                
+                <div class="case-block">
+                    <h2 data-fr="La Solution Technique" data-ar="الحل التقني والتطبيق" data-en="The Technical Solution"><i class="fas fa-database"></i> الحل التقني والتطبيق</h2>
+                    <p data-fr="Construction d'un pipeline ETL (Extraction, Transformation, Chargement) en utilisant des requêtes SQL complexes, des scripts Python/Pandas et Power Query pour nettoyer, standardiser, et valider l'intégrité référentielle des données avant et après la migration."
+                       data-ar="بناء خط أنابيب ETL (استخراج، تحويل، تحميل) باستخدام استعلامات SQL معقدة، وأكواد Python/Pandas و Power Query لتنظيف البيانات وتوحيدها والتحقق من تكاملها المرجعي قبل وبعد الترحيل."
+                       data-en="Building an ETL (Extract, Transform, Load) pipeline using complex SQL queries, Python/Pandas scripts, and Power Query to clean, standardize, and validate the referential integrity of the data before and after migration.">
+                       بناء خط أنابيب ETL (استخراج، تحويل، تحميل) باستخدام استعلامات SQL معقدة، وأكواد Python/Pandas و Power Query لتنظيف البيانات وتوحيدها والتحقق من تكاملها المرجعي قبل وبعد الترحيل.
+                    </p>
+                </div>
+
+                <div class="case-block">
+                    <h2 data-fr="Caractéristiques Clés" data-ar="المميزات الأساسية" data-en="Key Features"><i class="fas fa-cogs"></i> المميزات الأساسية</h2>
+                    <ul>
+                        <li data-fr="Validation Automatisée: Vérification de l'intégrité de 100% des enregistrements." data-ar="تحقق آلي: التحقق من سلامة 100% من السجلات." data-en="Automated Validation: Integrity check of 100% of records.">تحقق آلي: التحقق من سلامة 100% من السجلات.</li>
+                        <li data-fr="Nettoyage et Normalisation: Amélioration de la qualité des données." data-ar="تنظيف وتطبيع: تحسين جودة البيانات." data-en="Cleaning and Normalization: Improving data quality.">تنظيف وتطبيع: تحسين جودة البيانات.</li>
+                        <li data-fr="Interopérabilité des Systèmes: Connexion de l'ancien système au nouveau pendant la migration." data-ar="قابلية التشغيل البيني: ربط النظام القديم بالجديد أثناء الترحيل." data-en="System Interoperability: Connecting the old system to the new during migration.">قابلية التشغيل البيني: ربط النظام القديم بالجديد أثناء الترحيل.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2 data-fr="Impact Mesurable et Retour sur Investissement (ROI)" data-ar="التأثير القابل للقياس وعائد الاستثمار (ROI)" data-en="Measurable Impact and Return on Investment (ROI)">
+                    التأثير القابل للقياس وعائد الاستثمار (ROI)
+                </h2>
+                <div class="metric">
+                    <span class="metric-value" data-fr="100%" data-ar="100%" data-en="100%">100%</span>
+                    <span class="metric-label" data-fr="Taux de Migration des Enregistrements" data-ar="نسبة ترحيل السجلات بنجاح" data-en="Record Migration Success Rate">نسبة ترحيل السجلات بنجاح</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="+25%" data-ar="+25%" data-en="+25%">+25%</span>
+                    <span class="metric-label" data-fr="Amélioration de la Précision des Données" data-ar="تحسين في دقة البيانات" data-en="Improvement in Data Accuracy">تحسين في دقة البيانات</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="80%" data-ar="80%" data-en="80%">80%</span>
+                    <span class="metric-label" data-fr="Réduction du Temps de Migration Manuel" data-ar="خفض في وقت الترحيل اليدوي" data-en="Reduction in Manual Migration Time">خفض في وقت الترحيل اليدوي</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: center;">
+                <a href="contact.html" class="cta-button"
+                    data-fr="Avez-vous besoin d'une migration de données sécurisée? Contactez-nous." 
+                    data-ar="هل تحتاج إلى ترحيل آمن لبياناتك؟ اتصل بنا." 
+                    data-en="Need a secure data migration? Contact us.">
+                    هل تحتاج إلى ترحيل آمن لبياناتك؟ اتصل بنا.
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-fr="&copy; 2025 Analytica Pro. Tous droits réservés." data-ar="&copy; 2025 Analytica Pro. كل الحقوق محفوظة." data-en="&copy; 2025 Analytica Pro. All Rights Reserved.">
+                &copy; 2025 Analytica Pro. كل الحقوق محفوظة.
+            </p>
+            <div class="legal-links">
+                <a href="privacy-policy.html" data-fr="Politique de Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
+                <a href="terms-of-service.html" data-fr="Conditions de Service" data-ar="شروط الخدمة" data-en="Terms of Service">شروط الخدمة</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

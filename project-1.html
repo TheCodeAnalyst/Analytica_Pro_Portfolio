@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title 
+        data-fr="Analytica Pro | Projet: Modèle d'Analyse Financière" 
+        data-ar="Analytica Pro | تفاصيل المشروع: نموذج التحليل المالي" 
+        data-en="Analytica Pro | Project Details: Financial Analysis Model">
+        Analytica Pro | Projet: Modèle d'Analyse Financière
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    
+    <style>
+        /* CSS خاص بصفحة تفاصيل المشروع - الوضع الداكن/الذهبي */
+        
+        .project-details-section {
+            padding: 50px 50px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary); /* الذهبي */
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link i {
+            margin-left: 10px; /* للغة العربية */
+            margin-right: 0;
+        }
+        [dir="ltr"] .back-link i { /* تعديل الاتجاه للغات الأخرى */
+            margin-right: 10px;
+            margin-left: 0;
+            transform: scaleX(-1); /* لقلب السهم لليمين في وضع LTR */
+        }
+        
+        .project-details-section h1 {
+            color: var(--color-secondary); /* الأبيض/الفضي */
+            font-size: 2.5em;
+            border-bottom: 2px solid var(--color-primary); /* خط ذهبي تحت العنوان */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* تنسيق الأقسام الرئيسية (المشكلة، الحل، النتيجة) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: right;
+        }
+
+        .case-block {
+            background-color: var(--color-surface-dark);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-block h2 {
+            font-size: 1.8em;
+            color: var(--color-primary); /* العنوان ذهبي */
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .case-block h2 i {
+            margin-left: 10px; /* للعربية */
+            color: var(--color-secondary);
+        }
+        [dir="ltr"] .case-block h2 i {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+
+        /* جزء النتائج/ROI - الأكثر أهمية */
+        .results-section {
+            background-color: #1a1a1a; 
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 50px;
+            border: 3px solid var(--color-primary); /* إطار ذهبي بارز */
+            text-align: center;
+        }
+
+        .results-section h2 {
+            color: var(--color-primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .metric {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--color-secondary); /* فضي لامع */
+            display: block;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body data-current-lang="ar">
+
+    <header class="navbar main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link"><h1 class="logo">Analytica Pro</h1></a>
+            <nav class="main-nav nav-links">
+                <ul>
+                    <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    <li><a href="portfolio.html" class="active" data-fr="Nos Projets" data-ar="أعمالنا" data-en="Portfolio">أعمالنا</a></li>
+                    <li><a href="about.html" data-fr="À Propos" data-ar="من أنا" data-en="About">من أنا</a></li>
+                    <li><a href="contact.html" data-fr="Contactez-nous" data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls lang-switch">
+                <button data-lang="ar" class="lang-btn active">AR</button>
+                <button data-lang="fr" class="lang-btn">FR</button>
+                <button data-lang="en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container project-details-section">
+            
+            <a href="portfolio.html" class="back-link" 
+               data-fr="Retour au Portfolio" data-ar="العودة إلى أعمالنا" data-en="Back to Portfolio">
+               <i class="fas fa-arrow-right"></i> العودة إلى أعمالنا
+            </a>
+
+            <h1 data-fr="Modèle d'Analyse et de Planification Financière (Excel)"
+                data-ar="نموذج التحليل والتخطيط المالي (Excel)"
+                data-en="Financial Analysis and Planning Model (Excel)">
+                نموذج التحليل والتخطيط المالي (Excel)
+            </h1>
+            
+            <p data-fr="Création d'un modèle financier robuste pour analyser la performance, prévoir les flux de trésorerie et soutenir les décisions stratégiques pour les PME."
+               data-ar="إنشاء نموذج مالي متين لتحليل الأداء، وتوقع التدفقات النقدية، ودعم القرارات الاستراتيجية للمقاولات الصغيرة والمتوسطة."
+               data-en="Creation of a robust financial model to analyze performance, forecast cash flow, and support strategic decisions for SMEs.">
+               إنشاء نموذج مالي متين لتحليل الأداء، وتوقع التدفقات النقدية، ودعم القرارات الاستراتيجية للمقاولات الصغيرة والمتوسطة.
+            </p>
+            
+            <div class="case-study-grid">
+                <div class="case-block">
+                    <h2 data-fr="Le Défi" data-ar="التحدي والمشكلة" data-en="The Challenge"><i class="fas fa-exclamation-triangle"></i> التحدي والمشكلة</h2>
+                    <p data-fr="L'entreprise utilisait des feuilles de calcul statiques qui ne permettaient pas de simulations de scénarios ni de projections de croissance précises, ce qui rendait le budget et le suivi de la trésorerie réactifs plutôt que proactifs."
+                       data-ar="كانت الشركة تستخدم جداول بيانات ثابتة لا تسمح بمحاكاة السيناريوهات أو توقعات نمو دقيقة، مما جعل الميزانية وتتبع التدفقات النقدية تفاعلياً بدلاً من أن يكون استباقياً."
+                       data-en="The company was using static spreadsheets that did not allow for scenario simulations or accurate growth forecasts, making budgeting and cash flow tracking reactive rather than proactive.">
+                       كانت الشركة تستخدم جداول بيانات ثابتة لا تسمح بمحاكاة السيناريوهات أو توقعات نمو دقيقة، مما جعل الميزانية وتتبع التدفقات النقدية تفاعلياً بدلاً من أن يكون استباقياً.
+                    </p>
+                </div>
+                
+                <div class="case-block">
+                    <h2 data-fr="La Solution Technique" data-ar="الحل التقني والتطبيق" data-en="The Technical Solution"><i class="fas fa-calculator"></i> الحل التقني والتطبيق</h2>
+                    <p data-fr="Développement d'un modèle dans Excel (Power Pivot, fonctions avancées) qui intègre les trois états financiers, permet l'analyse de sensibilité et offre des prévisions de trésorerie sur 12 mois avec différents scénarios (Optimiste, de Base, Pessimiste)."
+                       data-ar="تطوير نموذج في Excel (Power Pivot، وظائف متقدمة) يدمج القوائم المالية الثلاث، ويسمح بتحليل الحساسية، ويوفر توقعات التدفقات النقدية لمدة 12 شهراً مع سيناريوهات مختلفة (متفائل، أساسي، متشائم)."
+                       data-en="Development of a model in Excel (Power Pivot, advanced functions) that integrates the three financial statements, allows for sensitivity analysis, and provides 12-month cash flow forecasts with different scenarios (Optimistic, Base, Pessimistic).">
+                       تطوير نموذج في Excel (Power Pivot، وظائف متقدمة) يدمج القوائم المالية الثلاث، ويسمح بتحليل الحساسية، ويوفر توقعات التدفقات النقدية لمدة 12 شهراً مع سيناريوهات مختلفة (متفائل، أساسي، متشائم).
+                    </p>
+                </div>
+
+                <div class="case-block">
+                    <h2 data-fr="Caractéristiques Clés" data-ar="المميزات الأساسية" data-en="Key Features"><i class="fas fa-cubes"></i> المميزات الأساسية</h2>
+                    <ul>
+                        <li data-fr="Analyse de Sensibilité: Évaluation rapide de l'impact des variables." data-ar="تحليل الحساسية: تقييم سريع لتأثير المتغيرات." data-en="Sensitivity Analysis: Rapid assessment of variable impact.">تحليل الحساسية: تقييم سريع لتأثير المتغيرات.</li>
+                        <li data-fr="Planification Pluriannuelle: Vue de croissance sur 3 ans." data-ar="تخطيط متعدد السنوات: رؤية نمو لـ 3 سنوات." data-en="Multi-Year Planning: 3-year growth perspective.">تخطيط متعدد السنوات: رؤية نمو لـ 3 سنوات.</li>
+                        <li data-fr="Tableaux de Bord Visuels: Suivi des indicateurs clés (KPIs)." data-ar="لوحات قيادة مرئية: تتبع مؤشرات الأداء الرئيسية (KPIs)." data-en="Visual Dashboards: Tracking Key Performance Indicators (KPIs).">لوحات قيادة مرئية: تتبع مؤشرات الأداء الرئيسية (KPIs).</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2 data-fr="Impact Mesurable et Retour sur Investissement (ROI)" data-ar="التأثير القابل للقياس وعائد الاستثمار (ROI)" data-en="Measurable Impact and Return on Investment (ROI)">
+                    التأثير القابل للقياس وعائد الاستثمار (ROI)
+                </h2>
+                <div class="metric">
+                    <span class="metric-value" data-fr="12 mois" data-ar="12 شهراً" data-en="12 months">12 شهراً</span>
+                    <span class="metric-label" data-fr="Horizon de prévision de trésorerie" data-ar="أفق توقع التدفقات النقدية" data-en="Cash Flow Forecasting Horizon">أفق توقع التدفقات النقدية</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="30%" data-ar="30%" data-en="30%">30%</span>
+                    <span class="metric-label" data-fr="Amélioration de la Précision du Budget" data-ar="تحسن في دقة الميزانية" data-en="Improvement in Budget Accuracy">تحسن في دقة الميزانية</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" data-fr="3 Scénarios" data-ar="3 سيناريوهات" data-en="3 Scenarios">3 سيناريوهات</span>
+                    <span class="metric-label" data-fr="Aide à la Décision" data-ar="مساعدة في اتخاذ القرار" data-en="Decision-Making Aid">مساعدة في اتخاذ القرار</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: center;">
+                <a href="contact.html" class="cta-button"
+                    data-fr="Sécurisez l'avenir de votre entreprise! Contactez-nous." 
+                    data-ar="اضمن مستقبل شركتك! اتصل بنا." 
+                    data-en="Secure your company's future! Contact us.">
+                    اضمن مستقبل شركتك! اتصل بنا.
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-fr="&copy; 2025 Analytica Pro. Tous droits réservés." data-ar="&copy; 2025 Analytica Pro. كل الحقوق محفوظة." data-en="&copy; 2025 Analytica Pro. All Rights Reserved.">
+                &copy; 2025 Analytica Pro. كل الحقوق محفوظة.
+            </p>
+            <div class="legal-links">
+                <a href="privacy-policy.html" data-fr="Politique de Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
+                <a href="terms-of-service.html" data-fr="Conditions de Service" data-ar="شروط الخدمة" data-en="Terms of Service">شروط الخدمة</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
