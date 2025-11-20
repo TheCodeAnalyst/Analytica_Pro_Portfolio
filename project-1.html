@@ -102,9 +102,18 @@
             margin-bottom: 20px;
         }
 
+        /* 🔥 التعديل هنا: إضافة حاوية Flexbox للمقاييس */
+        .metrics-container { 
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; /* للسماح للعناصر بالنزول لسطر جديد في شاشات الهاتف */
+            margin-top: 20px; 
+        }
+
         .metric {
-            display: inline-block;
-            margin: 0 20px;
+            /* display: inline-block; - تم حذف هذا السطر */
+            min-width: 250px; /* لضمان عرض كافي */ 
+            margin: 15px 0; /* لضمان تباعد عمودي في شاشات الهاتف */
         }
 
         .metric-value {
@@ -194,19 +203,21 @@
                 <h2 data-fr="Impact Mesurable et Retour sur Investissement (ROI)" data-ar="التأثير القابل للقياس وعائد الاستثمار (ROI)" data-en="Measurable Impact and Return on Investment (ROI)">
                     التأثير القابل للقياس وعائد الاستثمار (ROI)
                 </h2>
-                <div class="metric">
-                    <span class="metric-value" data-fr="12 mois" data-ar="12 شهراً" data-en="12 months">12 شهراً</span>
-                    <span class="metric-label" data-fr="Horizon de prévision de trésorerie" data-ar="أفق توقع التدفقات النقدية" data-en="Cash Flow Forecasting Horizon">أفق توقع التدفقات النقدية</span>
+                <div class="metrics-container"> 
+                    <div class="metric">
+                        <span class="metric-value" data-fr="12 mois" data-ar="12 شهراً" data-en="12 months">12 شهراً</span>
+                        <span class="metric-label" data-fr="Horizon de prévision de trésorerie" data-ar="أفق توقع التدفقات النقدية" data-en="Cash Flow Forecasting Horizon">أفق توقع التدفقات النقدية</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value" data-fr="30%" data-ar="30%" data-en="30%">30%</span>
+                        <span class="metric-label" data-fr="Amélioration de la Précision du Budget" data-ar="تحسن في دقة الميزانية" data-en="Improvement in Budget Accuracy">تحسن في دقة الميزانية</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value" data-fr="3 Scénarios" data-ar="3 سيناريوهات" data-en="3 Scenarios">3 سيناريوهات</span>
+                        <span class="metric-label" data-fr="Aide à la Décision" data-ar="مساعدة في اتخاذ القرار" data-en="Decision-Making Aid">مساعدة في اتخاذ القرار</span>
+                    </div>
                 </div>
-                <div class="metric">
-                    <span class="metric-value" data-fr="30%" data-ar="30%" data-en="30%">30%</span>
-                    <span class="metric-label" data-fr="Amélioration de la Précision du Budget" data-ar="تحسن في دقة الميزانية" data-en="Improvement in Budget Accuracy">تحسن في دقة الميزانية</span>
                 </div>
-                <div class="metric">
-                    <span class="metric-value" data-fr="3 Scénarios" data-ar="3 سيناريوهات" data-en="3 Scenarios">3 سيناريوهات</span>
-                    <span class="metric-label" data-fr="Aide à la Décision" data-ar="مساعدة في اتخاذ القرار" data-en="Decision-Making Aid">مساعدة في اتخاذ القرار</span>
-                </div>
-            </div>
             
             <div style="margin-top: 50px; text-align: center;">
                 <a href="contact.html" class="cta-button"
