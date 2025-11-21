@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const langButtons = document.querySelectorAll('.lang-btn');
     const defaultLang = 'fr';
-    const cashFlowChartContext = document.getElementById('cashFlowChart'); // يجب تعريفها هنا ليتم استخدامها في applyTranslation
+    const cashFlowChartContext = document.getElementById('cashFlowChart'); 
 
     const applyTranslation = (lang) => {
         
@@ -61,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!finalTranslation) {
                  finalTranslation = element.textContent;
             }
+            
+            // 🔥🔥 إصلاح الشريط المقطع: معالجة الرمز العكسي (\) في النصوص 🔥🔥
+            // كود الـ HTML كيستعمل الرمز العكسي. هاد التعديل كيحولو للفاصلة العلوية (')
+            if (finalTranslation && lang !== 'ar') { // نطبقوه فقط على الفرنسية والإنجليزية
+                finalTranslation = finalTranslation.replace(/\\/g, "'"); 
+            }
+            // -----------------------------------------------------------------
 
             if (element.tagName === 'TITLE') {
                  if (finalTranslation) {
@@ -84,7 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // إعادة تشغيل التوقع بعد تغيير اللغة (وظيفة قمت بإنشائها مسبقاً)
         if (cashFlowChartContext && typeof updateChart !== 'undefined') {
             const initialHistoricalData = [50000, 65000, 48000, 72000, 81000, 90000];
-            const initialForecastData = performForecast(initialHistoricalData);
+            // قمت بتغيير استدعاء performForecast في البداية
+            const initialForecastData = performForecast(initialHistoricalData); 
             updateChart(initialHistoricalData, initialForecastData);
         }
 
@@ -348,17 +356,20 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (currentLangForForm === 'ar') {
                 waitMessage = "جاري الإرسال...";
-                successMessage = "تم إرسال رسالتك بنجاح. شكراً لك يا حسام!";
+                // 🔥🔥 إضافة اسمك للرسالة 🔥🔥
+                successMessage = "تم إرسال رسالتك بنجاح. شكراً لك يا حسام!"; 
                 errorMessage = "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.";
                 networkError = "خطأ في الاتصال. يرجى التحقق من شبكة الإنترنت.";
             } else if (currentLangForForm === 'en') {
                 waitMessage = "Sending...";
-                successMessage = "Your message was sent successfully. Thank you, Hossam!";
+                // 🔥🔥 إضافة اسمك للرسالة 🔥🔥
+                successMessage = "Your message was sent successfully. Thank you, Hossam!"; 
                 errorMessage = "An error occurred during submission. Please try again.";
                 networkError = "Connection error. Please check your network.";
             } else {
                 waitMessage = "Envoi en cours...";
-                successMessage = "Votre message a été envoyé avec succès. Merci, Hossam !";
+                // 🔥🔥 إضافة اسمك للرسالة 🔥🔥
+                successMessage = "Votre message a été envoyé avec succès. Merci, Hossam !"; 
                 errorMessage = "Une erreur s'est produite lors de l'envoi. Veuillez réessayer.";
                 networkError = "Erreur de connexion. Veuillez vérifier votre réseau.";
             }
