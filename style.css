@@ -8,6 +8,9 @@
     /* الخطوط الأساسية */
     --font-secondary: 'Tahoma', sans-serif; 
     
+    /* 🔥🔥🔥 التعديل 1: تعريف ارتفاع الهيدر 🔥🔥🔥 */
+    --header-height: 80px; 
+    
     /* الألوان الثابتة (الذهبي والحيادي) */
     --color-primary: #FFD700; /* اللون الذهبي المميز */
     --padding-container: 100px 50px;
@@ -64,6 +67,9 @@ body {
     color: var(--color-text);
     line-height: 1.7; 
     transition: background-color var(--transition-speed), color var(--transition-speed);
+    
+    /* 🔥🔥🔥 التعديل 2: إضافة التعويض للهيدر الثابت 🔥🔥🔥 */
+    padding-top: var(--header-height); 
 }
 
 .container {
@@ -119,6 +125,7 @@ ul {
 
 
 .page-content {
+    /* يجب تعديل هذه القيمة إذا غيرت حجم الهيدر أو الفوتر */
     min-height: calc(100vh - 120px); 
     padding: var(--padding-container);
 }
@@ -133,9 +140,14 @@ ul {
     background-color: var(--color-header-footer);
     padding: 15px 0;
     box-shadow: 0 2px 10px var(--color-shadow);
-    position: sticky;
+    
+    /* 🔥🔥🔥 التعديل 3: تغيير من sticky إلى fixed 🔥🔥🔥 */
+    position: fixed; /* ضروري ليبقى ثابت ولا يختفي */
     top: 0;
-    z-index: 100;
+    left: 0; 
+    width: 100%;
+    
+    z-index: 1000; /* رفع الـ z-index لمنع العناصر الأخرى من تغطيته */
     border-bottom: 1px solid var(--color-surface); 
 }
 
@@ -788,7 +800,7 @@ body:not(.dark-mode) .progress-bar {
     text-align: center;
 }
 
-/* 🔥🔥 التعديل 2: إصلاح البطاقة في صفحات المشاريع (ROI) 🔥🔥 */
+/* 🔥🔥 التعديل 4: إصلاح البطاقة في صفحات المشاريع (ROI) 🔥🔥 */
 
 .project-details-section {
     padding: 50px 50px 100px;
@@ -797,6 +809,9 @@ body:not(.dark-mode) .progress-bar {
     text-align: inherit; 
     position: relative;
     z-index: 2; 
+    
+    /* 🔥🔥🔥 إضافة تعويض للمسافة العلوية لضمان أن العنوان لا يختفي تحت الهيدر الثابت 🔥🔥🔥 */
+    padding-top: 100px; 
 }
 
 .results-section {
@@ -879,6 +894,11 @@ body:not(.dark-mode) .progress-bar {
     .input-form-card, .chart-display-card {
         flex-basis: 100%;
         width: 100%;
+    }
+    
+    /* 🔥🔥🔥 التعديل 5: إضافة تعويض كبير للهيدر المتمدد على الجوال 🔥🔥🔥 */
+    body {
+        padding-top: 220px; /* القيمة التي تحل مشكل التداخل الكارثي على الهاتف */
     }
     
     /* 🔥🔥 تحديث خاص للجوال: لضمان نزول العناصر في البطاقة لأسفل في الشاشات الضيقة جداً */
