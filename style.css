@@ -141,10 +141,8 @@ ul {
 
 .nav-container {
     display: flex;
-    /* التصحيح 1: نعود لـ space-between لتفريق اللوغو عن القائمة عن أدوات التحكم (حل مشكلة التداخل) */
     justify-content: space-between;
     align-items: center;
-    /* التصحيح 2: للسماح بكسر الشريط في شاشات الجوال */
     flex-wrap: wrap; 
 }
 
@@ -152,14 +150,12 @@ ul {
     font-size: 1.8em;
     color: var(--color-primary);
     font-weight: 900;
-    /* التصحيح 3: إضافة هامش لفصل اللوغو عن القائمة (خاصة في شاشات LTR) */
     margin-right: 20px; 
 }
 
 /* القائمة الرئيسية */
 .main-nav ul {
     display: flex;
-    /* التصحيح 4 أ: تقليل المسافة بين الروابط لحل مشكلة اللغة الفرنسية */
     gap: 20px;
 }
 
@@ -169,9 +165,6 @@ ul {
     font-size: 1.1em;
     position: relative;
     padding: 5px 0;
-    
-    /* التصحيح 4 ب: إلغاء white-space: nowrap; والاعتماد على 'gap' فقط 
-       لأن 'nowrap' كان يسبب مشكلة التداخل في الحالات الأخرى */
     white-space: normal; 
 }
 
@@ -208,7 +201,7 @@ ul {
 
 .lang-btn {
     background: var(--color-surface);
-    border: 1px solid var(--border-color); /* استخدام متغير الحدود */
+    border: 1px solid var(--border-color); 
     color: var(--color-text);
     padding: 5px 10px;
     border-radius: 4px;
@@ -228,8 +221,6 @@ body.dark-mode .lang-btn {
     font-weight: bold;
 }
 
-/* ======= تعديل أيقونة الشمس/القمر (Theme Toggle) لضمان ظهورها ======= */
-/* تم تغيير ID ليتطابق مع الكود الأخير الذي أرسلته لك في contact.html */
 .theme-toggle, #dark-mode-toggle { 
     background: none; 
     border: none;     
@@ -249,9 +240,7 @@ body.dark-mode .lang-btn {
 .theme-toggle:hover i, #dark-mode-toggle:hover i {
     color: var(--color-primary); 
 }
-/* ================================================================= */
 
-/* التصحيح 5: تحسين التباعد في RTL (اللغة العربية) لتعويض قصر الكلمات */
 [dir="rtl"] .main-nav ul {
     gap: 25px; 
 }
@@ -304,18 +293,17 @@ body.dark-mode .lang-btn {
 .hero-layout {
     display: flex;
     flex-direction: column;
-    align-items: center;    /* توسيط أفقي لكل المحتوى (Text + Image) */
-    text-align: center;     /* توسيط النصوص داخل الفقرات */
-    position: relative;     /* أساس لتحديد موضع الأيقونة المطلق */
+    align-items: center;
+    text-align: center;
+    position: relative;
     gap: 20px; 
     max-width: 1000px; 
     margin: 0 auto;
-    /* إضافة Padding سفلي لترك مساحة كافية للأيقونة في الأسفل */
     padding-bottom: 120px; 
 }
 
 .hero-text {
-    max-width: 750px; /* تحديد أقصى عرض للكتلة النصية لتكون مركزة */
+    max-width: 750px;
     width: 100%;
     margin-bottom: 20px;
     z-index: 2; 
@@ -337,7 +325,7 @@ body.dark-mode .hero-text h1 {
     margin-bottom: 40px;
 }
 
-/* 🔥🔥🔥 التصحيح 2: لإصلاح اقتطاع نص زر الدعوة للعمل (CTA) 🔥🔥🔥 */
+/* 🔥🔥 التعديل 1: إصلاح اقتطاع نص زر الدعوة للعمل (CTA) 🔥🔥 */
 .cta-button {
     display: inline-block;
     background-color: var(--color-primary);
@@ -352,36 +340,32 @@ body.dark-mode .hero-text h1 {
     /* ✅ التعديلات الأساسية لـ CTA */
     white-space: normal; /* يسمح للنص الطويل بالتغليف (النزول لسطر جديد) */
     width: auto; /* يسمح للعرض بالتمدد حسب طول النص */
+    max-width: 90%; /* يمنع الزر من أن يصبح أعرض من اللازم على الجوال */
     text-align: center; 
-    overflow: visible; /* منع الاقتطاع الخفي */
+    overflow: visible; 
 }
 .cta-button:hover {
-     background-color: #ffd700cc; /* لون أغمق قليلاً عند التمرير */
+     background-color: #ffd700cc;
 }
 
 
-/* **تنسيق الأيقونة (لتحريكها وتصغيرها وإضافة لمسة جمالية)** */
+/* **تنسيق الأيقونة** */
 .hero-image-container {
     position: absolute; 
-    font-size: 120px; /* تصغير حجم الخط لتحقيق التوازن */
+    font-size: 120px;
     z-index: 1;
-    display: none; /* إخفاؤها في الشاشات الصغيرة */
-    
-    /* إضافة لمسة جمالية (ظل ذهبي خفيف) بدلاً من الإطار */
+    display: none;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); 
-    
-    /* تحديد موقعها بشكل مطلق لعدم التداخل مع النص */
     bottom: 5px;    
     right: 15%;      
 }
 
-/* إظهار وتحريك الأيقونة على الشاشات الكبيرة فقط (التحريك المطلوب) */
 @media (min-width: 1024px) {
     .hero-image-container {
         display: block; 
     }
 }
-/* تنسيق الأيقونة داخل قسم البطل */
+
 .hero-image-container i {
     color: var(--color-primary);
 }
@@ -394,21 +378,18 @@ body.dark-mode .hero-text h1 {
     height: 300px;
     border-radius: 50%;
     overflow: hidden;
-    /* تم إلغاء الحدود والظلال لجعلها مجرد حاوية عادية إذا لم تستخدم صورة */
     border: none; 
     box-shadow: none;
-    /* لضمان توسيط الآيقونة عند عدم وجود صورة */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* هذه التنسيقات ستمنع ظهور الدائرة إذا لم تضع فيها محتوى بصري */
 }
 
 
-/* --- تصحيح: شبكة الخدمات المفقودة (index.html) --- */
+/* --- شبكة الخدمات المفقودة (index.html) --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 أعمدة في الأجهزة الكبيرة */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     padding: 50px 0;
     text-align: center; 
@@ -424,14 +405,12 @@ body.dark-mode .hero-text h1 {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px var(--color-shadow), 0 0 15px rgba(255, 215, 0, 0.5);
 }
-/* ======= تأكيد ظهور أيقونات الخدمات ======= */
 .service-card .service-icon {
     font-size: 40px; 
     color: var(--color-primary); 
     margin-bottom: 15px;
     display: block; 
 }
-/* ======================================= */
 
 
 /* --- 5.2 صفحة الأعمال (Portfolio Page) --- */
@@ -505,7 +484,7 @@ body.dark-mode .hero-text h1 {
     padding: 3px 8px;
     border-radius: 5px;
     font-size: 0.9em;
-    margin-right: 5px; /* أو margin-left: 5px; في RTL */
+    margin-right: 5px;
 }
 
 /* --- 5.3 صفحة عني (About Page) --- */
@@ -522,7 +501,7 @@ body.dark-mode .hero-text h1 {
     margin-top: 25px;
 }
 
-/* **أشرطة المهارات (Skill Bars) - استرجاع الألوان الأصلية** */
+/* **أشرطة المهارات (Skill Bars)** */
 .skills-section {
     padding: 40px 0;
 }
@@ -540,7 +519,6 @@ body.dark-mode .hero-text h1 {
     font-size: 1.1em;
 }
 
-/* الخلفية الأساسية للشريط */
 .progress-bar {
     background-color: #383838; 
     border-radius: 10px;
@@ -550,43 +528,39 @@ body.dark-mode .hero-text h1 {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* لون الخلفية في الوضع النهاري (أبيض) */
 body:not(.dark-mode) .progress-bar {
     background-color: #E9ECEF; 
 }
 
 
 .progress-fill {
-    /* **تم حذف لون الخلفية العام هنا، سيتم تحديد اللون بالكلاس الخاص به** */
     height: 100%;
     width: 0; 
     transition: width 1.5s ease-in-out;
     border-radius: 10px;
 }
 
-/* الكلاسات الخاصة بالألوان لي كانت عندك في الصورة */
 .progress-fill.green {
-    background-color: #28a745; /* أخضر */
+    background-color: #28a745; 
     background-image: linear-gradient(to right, #28a745, #218838);
 }
 
 .progress-fill.yellow {
-    background-color: #ffc107; /* أصفر */
+    background-color: #ffc107;
     background-image: linear-gradient(to right, #ffc107, #e0a800);
 }
 
 .progress-fill.blue {
-    background-color: #007bff; /* أزرق */
+    background-color: #007bff;
     background-image: linear-gradient(to right, #007bff, #0056b3);
 }
 
-.progress-fill.gold { /* هذا اللون ممكن تستعمله للمشاريع الخاصة أو لي بغيتيها ذهبية */
+.progress-fill.gold {
     background-color: var(--color-primary);
     background-image: linear-gradient(to right, #ffd700, #ffc400); 
 }
 
 
-/* لضمان بدء شريط الملء من اليمين في اللغة العربية */
 [dir="rtl"] .progress-fill {
     position: absolute;
     right: 0;
@@ -597,20 +571,18 @@ body:not(.dark-mode) .progress-bar {
 /* -------------------------------------- */
 
 .contact-layout {
-    /* تغيير الترتيب ليتوافق مع التصميم اللي شفناه في الصورة */
     display: flex;
     gap: 50px;
     padding: 50px 0;
-    flex-direction: row-reverse; /* نموذج الاتصال يمين، المعلومات يسار في LTR */
+    flex-direction: row-reverse;
 }
 
-/* عكس الترتيب في اللغة العربية (RTL) */
 [dir="rtl"] .contact-layout {
-    flex-direction: row; /* نموذج الاتصال يمين، المعلومات يسار في RTL */
+    flex-direction: row;
 }
 
 .contact-form {
-    flex-grow: 1; /* يأخذ المساحة المتبقية */
+    flex-grow: 1;
     background-color: var(--color-surface);
     padding: 40px;
     border-radius: var(--border-radius-base);
@@ -632,7 +604,6 @@ body:not(.dark-mode) .progress-bar {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    /* استخدام متغير الحدود والخلفية */
     border: 1px solid var(--border-color); 
     border-radius: 4px;
     background-color: var(--input-bg); 
@@ -648,7 +619,7 @@ body:not(.dark-mode) .progress-bar {
 }
 
 .contact-info {
-    flex-basis: 350px; /* عرض ثابت لصندوق المعلومات */
+    flex-basis: 350px;
     flex-shrink: 0;
 }
 
@@ -683,7 +654,7 @@ body:not(.dark-mode) .progress-bar {
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
-    width: 100%; /* لكي يأخذ الزر عرض النموذج كاملاً */
+    width: 100%;
     margin-top: 20px;
     box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
 }
@@ -693,7 +664,7 @@ body:not(.dark-mode) .progress-bar {
 
 
 /* --- 5.5 صفحات السياسات وتفاصيل المشاريع --- */
-/* إضافة تنسيق شبكة المشكل/الحل لصفحة تفاصيل المشروع */
+
 .problem-solution-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -721,7 +692,7 @@ body:not(.dark-mode) .progress-bar {
 }
 .problem-solution-grid i {
     color: var(--color-primary);
-    margin-right: 10px; /* أو margin-left في RTL */
+    margin-right: 10px;
 }
 [dir="rtl"] .problem-solution-grid i {
     margin-right: 0;
@@ -755,18 +726,17 @@ body:not(.dark-mode) .progress-bar {
 .analysis-layout {
     display: flex;
     gap: 40px;
-    align-items: flex-start; /* تبدأ العناصر من الأعلى */
+    align-items: flex-start;
     padding: 30px 0;
 }
 
-/* تنسيق بطاقة الإدخال (Form) وعرض الرسم البياني (Chart) */
 .input-form-card,
 .chart-display-card {
     background-color: var(--color-surface);
     padding: 30px;
     border-radius: var(--border-radius-base);
     box-shadow: 0 4px 15px var(--color-shadow);
-    flex: 1; /* لجعل البطاقتين تتشاركان المساحة بالتساوي */
+    flex: 1;
 }
 
 .input-form-card h3,
@@ -778,7 +748,6 @@ body:not(.dark-mode) .progress-bar {
     padding-bottom: 10px;
 }
 
-/* تنسيق النموذج */
 #cashflow-form label {
     display: block;
     margin-top: 15px;
@@ -790,7 +759,6 @@ body:not(.dark-mode) .progress-bar {
 #cashflow-form input[type="number"] {
     width: 100%;
     padding: 10px;
-    /* استخدام متغير الحدود والخلفية */
     border: 1px solid var(--border-color); 
     border-radius: 4px;
     background-color: var(--input-bg); 
@@ -809,7 +777,6 @@ body:not(.dark-mode) .progress-bar {
     text-align: center;
 }
 
-/* تنسيق نتائج التوقع */
 .forecast-result {
     margin-top: 30px;
     padding: 15px;
@@ -821,13 +788,12 @@ body:not(.dark-mode) .progress-bar {
     text-align: center;
 }
 
-/* 🔥🔥🔥 التصحيح 1 و 3: إصلاح البطاقة في صفحات المشاريع (ROI) 🔥🔥🔥 */
+/* 🔥🔥 التعديل 2: إصلاح البطاقة في صفحات المشاريع (ROI) 🔥🔥 */
 
 .project-details-section {
     padding: 50px 50px 100px;
     max-width: 1000px;
     margin: 0 auto;
-    /* المحاذاة حسب الاتجاه (LTR/RTL) */
     text-align: inherit; 
     position: relative;
     z-index: 2; 
@@ -841,25 +807,28 @@ body:not(.dark-mode) .progress-bar {
     border: 3px solid var(--color-primary);
     text-align: center;
     
-    /* ✅ التعديل 3: ضمان ظهور البطاقة فوق أي تداخل وإصلاح الاقتطاع من الأعلى */
     position: relative; 
     z-index: 5; 
     overflow: visible; 
 }
 
-/* ✅ التعديل 1: إصلاح الفوضى الأفقية (Horizontal Chaos) واستبدال Flex بـ Grid */
+/* ✅ تطبيق Flexbox مع قواعد صارمة لضمان التوزيع السليم في كل من Desktop والجوال */
 .metrics-container { 
-    display: grid;
-    /* 3 أعمدة متساوية، كل منها بعرض أدنى 280 بكسل. يتكيف تلقائيًا. */
-    grid-template-columns: repeat(auto-fit, minmin(280px, 1fr)); 
-    gap: 30px; 
+    display: flex; 
+    justify-content: space-around;
+    flex-wrap: wrap; /* السماح بالنزول لسطر جديد في شاشات الجوال */
     margin-top: 20px; 
+    align-items: center;
+    overflow: hidden; 
 }
 
 .metric {
-    min-width: unset;
-    margin: 0; 
-    text-align: center; 
+    /* ✅ الأهم: إعطاء كل عنصر عرضًا ثابتًا لضمان عدم تداخله أو تمدده بشكل خاطئ */
+    min-width: 250px; /* ضمان عرض كافي للنص على الشاشات الكبيرة */
+    flex-basis: 30%; /* لتشجيعهم على البقاء على سطر واحد على الشاشات الكبيرة */
+    margin: 15px 0; 
+    
+    text-align: center;
 }
 
 
@@ -870,7 +839,6 @@ body:not(.dark-mode) .progress-bar {
         text-align: center;
         padding: 50px 0;
     }
-    /* تصحيح Grid في الأجهزة الصغيرة */
     .problem-solution-grid {
         grid-template-columns: 1fr;
     }
@@ -907,11 +875,18 @@ body:not(.dark-mode) .progress-bar {
         height: 200px;
     }
     
-    /* تحسين العرض في وضع الجوال لصفحة الاتصال والسيولة */
     .contact-info, .contact-form,
     .input-form-card, .chart-display-card {
         flex-basis: 100%;
         width: 100%;
+    }
+    
+    /* 🔥🔥 تحديث خاص للجوال: لضمان نزول العناصر في البطاقة لأسفل في الشاشات الضيقة جداً */
+    .metric {
+        flex-basis: 100%; /* كل عنصر يأخذ سطرًا كاملاً على الجوال */
+        min-width: unset;
+        max-width: 300px; /* منع التمدد المفرط */
+        margin: 15px auto; /* توسيط العنصر */
     }
 }
 
@@ -934,75 +909,56 @@ body:not(.dark-mode) .progress-bar {
         grid-template-columns: 1fr;
     }
     .services-grid {
-        grid-template-columns: 1fr; /* الخدمات عمود واحد في الجوال */
+        grid-template-columns: 1fr;
     }
 }
 
 
 /* ========================================= */
-/* 6. تنسيق وضع الـ RTL (للغة العربية) - (تنظيم الكود) */
+/* 6. تنسيق وضع الـ RTL (للغة العربية) */
 /* ========================================= */
 
-/* تعديل اتجاه النص والهوامش عند التحويل للعربية */
 body[data-current-lang="ar"] {
     direction: rtl;
     text-align: right;
 }
 
-/* عكس ترتيب العناصر الرئيسية (Hero, About) في وضع RTL */
 body[data-current-lang="ar"] .about-layout {
-    flex-direction: row; /* لعكس ترتيب الصورة والنص في حول الصفحة */
+    flex-direction: row;
 }
 
-
-/* تعديل فلاتر الأعمال (Portfolio Filters) في وضع RTL */
 body[data-current-lang="ar"] .filter-controls {
-    justify-content: flex-start; /* تبدأ الفلاتر من اليمين في RTL */
+    justify-content: flex-start;
 }
 
-/* تعديل محاذاة النص في خانات الاتصال */
 body[data-current-lang="ar"] .contact-info .info-item {
     text-align: right;
 }
 
-/* تعديل اتجاه الأيقونات في الاتصال */
 body[data-current-lang="ar"] .info-item {
     direction: rtl; 
 }
-/* تعديل الأيقونة في back-link */
 body[data-current-lang="ar"] .back-link i {
     transform: rotate(180deg);
 }
 
-/* * --------------------------------------
- * قواعد RTL الإضافية المُحسّنة (لا توجد أي إزالة)
- * --------------------------------------
- */
-
-/* عكس مؤشر التحديد في القائمة الرئيسية */
 body[data-current-lang="ar"] .main-nav a::after {
     right: 0;
     left: auto;
 }
 
-/* الأيقونات في القائمة والنصوص (مثل أيقونة المشاكل/الحلول) */
 body[data-current-lang="ar"] .problem-solution-grid i,
 body[data-current-lang="ar"] .info-item i {
-    /* عكس الهامش الجانبي للأيقونات (من اليسار إلى اليمين) */
     margin-right: 0;
     margin-left: 10px;
 }
 
-/* تنسيق وسم التكنولوجيا (Tags) */
 body[data-current-lang="ar"] .tech-tags .tag {
-    /* عكس الهامش بين الوسوم */
     margin-right: 0;
     margin-left: 5px; 
 }
 
-/* شريط المهارات (Skills Bar) */
 body[data-current-lang="ar"] .progress-fill {
-    /* يبدأ شريط الملء من اليمين في اللغة العربية */
     position: absolute;
     right: 0;
     left: auto;
