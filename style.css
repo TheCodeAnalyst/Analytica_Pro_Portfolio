@@ -337,6 +337,7 @@ body.dark-mode .hero-text h1 {
     margin-bottom: 40px;
 }
 
+/* 🔥🔥🔥 التصحيح 2: لإصلاح اقتطاع نص زر الدعوة للعمل (CTA) 🔥🔥🔥 */
 .cta-button {
     display: inline-block;
     background-color: var(--color-primary);
@@ -347,6 +348,12 @@ body.dark-mode .hero-text h1 {
     font-size: 1.1em;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
     box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+    
+    /* ✅ التعديلات الأساسية لـ CTA */
+    white-space: normal; /* يسمح للنص الطويل بالتغليف (النزول لسطر جديد) */
+    width: auto; /* يسمح للعرض بالتمدد حسب طول النص */
+    text-align: center; 
+    overflow: visible; /* منع الاقتطاع الخفي */
 }
 .cta-button:hover {
      background-color: #ffd700cc; /* لون أغمق قليلاً عند التمرير */
@@ -812,6 +819,47 @@ body:not(.dark-mode) .progress-bar {
     font-size: 1.1em;
     border-radius: var(--border-radius-base);
     text-align: center;
+}
+
+/* 🔥🔥🔥 التصحيح 1 و 3: إصلاح البطاقة في صفحات المشاريع (ROI) 🔥🔥🔥 */
+
+.project-details-section {
+    padding: 50px 50px 100px;
+    max-width: 1000px;
+    margin: 0 auto;
+    /* المحاذاة حسب الاتجاه (LTR/RTL) */
+    text-align: inherit; 
+    position: relative;
+    z-index: 2; 
+}
+
+.results-section {
+    background-color: #1a1a1a; 
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: 50px;
+    border: 3px solid var(--color-primary);
+    text-align: center;
+    
+    /* ✅ التعديل 3: ضمان ظهور البطاقة فوق أي تداخل وإصلاح الاقتطاع من الأعلى */
+    position: relative; 
+    z-index: 5; 
+    overflow: visible; 
+}
+
+/* ✅ التعديل 1: إصلاح الفوضى الأفقية (Horizontal Chaos) واستبدال Flex بـ Grid */
+.metrics-container { 
+    display: grid;
+    /* 3 أعمدة متساوية، كل منها بعرض أدنى 280 بكسل. يتكيف تلقائيًا. */
+    grid-template-columns: repeat(auto-fit, minmin(280px, 1fr)); 
+    gap: 30px; 
+    margin-top: 20px; 
+}
+
+.metric {
+    min-width: unset;
+    margin: 0; 
+    text-align: center; 
 }
 
 
